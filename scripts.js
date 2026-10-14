@@ -1,7 +1,26 @@
 (function () {
   const body = document.body;
 
-  // Mobile nav toggle
+  const menuTrigger = document.getElementById('menuTrigger');
+  const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+
+  if (menuTrigger && mobileMenuPanel) {
+    menuTrigger.addEventListener('click', () => {
+      const isOpen = mobileMenuPanel.classList.contains('open');
+      mobileMenuPanel.classList.toggle('open', !isOpen);
+      menuTrigger.setAttribute('aria-expanded', String(!isOpen));
+      mobileMenuPanel.setAttribute('aria-hidden', String(isOpen));
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!mobileMenuPanel.contains(event.target) && !menuTrigger.contains(event.target)) {
+        mobileMenuPanel.classList.remove('open');
+        menuTrigger.setAttribute('aria-expanded', 'false');
+        mobileMenuPanel.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+
   const navToggle = document.getElementById('nav-toggle');
   const navToggleAbout = document.getElementById('nav-toggle-about');
   const navToggleServices = document.getElementById('nav-toggle-services');
@@ -27,7 +46,6 @@
     });
   });
 
-  // Dropdown buttons
   document.querySelectorAll('.submenu-button').forEach((btn) => {
     btn.addEventListener('click', () => {
       const open = btn.getAttribute('aria-expanded') === 'true';
@@ -37,12 +55,12 @@
     });
   });
 
-  // Lightbox
   const lightbox = document.getElementById('lightbox');
   const lightboxImage = document.getElementById('lightbox-image');
   const lightboxClose = document.getElementById('lightbox-close');
 
   function openLightbox(src) {
+    if (!lightbox || !lightboxImage) return;
     lightboxImage.src = src;
     lightbox.setAttribute('aria-hidden', 'false');
     lightbox.style.display = 'flex';
@@ -50,6 +68,7 @@
   }
 
   function closeLightbox() {
+    if (!lightbox || !lightboxImage) return;
     lightboxImage.src = '';
     lightbox.setAttribute('aria-hidden', 'true');
     lightbox.style.display = 'none';
@@ -60,10 +79,7 @@
     img.addEventListener('click', () => openLightbox(img.src));
   });
 
-  if (lightboxClose) {
-    lightboxClose.addEventListener('click', closeLightbox);
-  }
-
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
   if (lightbox) {
     lightbox.addEventListener('click', (event) => {
       if (event.target === lightbox) closeLightbox();
@@ -74,10 +90,9 @@
     if (event.key === 'Escape') closeLightbox();
   });
 
-  // Pointer tilt (subtle) for certain elements
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!prefersReducedMotion) {
-    document.querySelectorAll('.hero-media img, .card-media img, .newsletter-image img, .tribute-image img, .flower-box img, .service-item img').forEach((el) => {
+    document.querySelectorAll('.hero-right img, .card-media img, .newsletter-image img, .tribute-image img, .flower-box img, .service-item img').forEach((el) => {
       el.addEventListener('pointermove', (e) => {
         const rect = el.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;

@@ -13,57 +13,74 @@
 <body>
   <header class="site-header">
     <div class="container nav-wrap">
-      <a href="index.html" class="brand" aria-label="Wolserve Western Cape home">
-        <img src="images/Picture 10.png" alt="Wolserve Western Cape logo" class="brand-logo">
-      </a>
+      <div class="brand-area">
+        <a href="index.html" class="brand" aria-label="Wolserve Western Cape home">
+          <img src="images/Picture 10.png" alt="Wolserve Western Cape logo" class="brand-logo">
+        </a>
+      </div>
 
-      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="menu-trigger" id="menuTrigger" type="button" aria-expanded="false" aria-controls="mobileMenuPanel">
+        <span class="menu-trigger-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span>Menu</span>
       </button>
+    </div>
 
-      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
-        <ul class="menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">Meet the Team</a></li>
-          <li class="submenu-wrap">
-            <button class="submenu-button" type="button" aria-expanded="false">Services</button>
-            <ul class="submenu">
-              <li><a href="services.html#property">Property Services</a></li>
-              <li><a href="services.html#homecare">Homecare</a></li>
-              <li><a href="services.html#consulting">Consulting & Quality</a></li>
-            </ul>
-          </li>
-          <li><a href="newsletter.html">Newsletter</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+    <div class="mobile-menu-panel" id="mobileMenuPanel" aria-hidden="true">
+      <div class="panel-inner">
+        <div class="panel-section">
+          <a href="index.html">Home</a>
+          <a href="about.html">Meet the Team</a>
+          <a href="about.html#mission">Our mission</a>
+          <a href="newsletter.html">News &amp; monthly newsletter</a>
+        </div>
+
+        <div class="panel-section">
+          <a href="services.html#property" class="heading-link">Wolserve Western Cape (Pty) Ltd Services</a>
+          <a href="services.html#property">Wolserve Western Cape (Pty) Ltd Services</a>
+          <a href="services.html#property" class="sub-link">↘ Cleaning Equipment Repairs, Maintenance &amp; Inspection</a>
+          <a href="services.html#property" class="sub-link panel-highlight">↘ Sales/Rental of Homecare Medical Equipment</a>
+          <a href="services.html#property" class="sub-link">↘ Stone Masonry</a>
+          <a href="services.html#property" class="sub-link">↘ Wolserve WC (Pty) Ltd Call</a>
+        </div>
+
+        <div class="panel-section">
+          <a href="services.html#homecare">Homecare &amp; consulting</a>
+          <a href="services.html#homecare" class="sub-link">Wolserve WC Homecare</a>
+        </div>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">Established 2021</span>
-          <h1>One trusted company.<br><em>Practical solutions.</em></h1>
-          <p class="lead">Established in 2021, Wolserve Western Cape (Pty) Ltd is the umbrella company for our longstanding repair, maintenance services, together with two newer companies trading as Wolserve WC Homecare and Wolserve WC Consulting.</p>
+    <section class="hero hero-pro">
+      <div class="container hero-inner">
+        <div class="hero-left">
+          <img class="brand-large" src="images/Picture 10.png" alt="Wolserve Western Cape logo">
+          <h1>Wolserve Western Cape — Practical care, reliable service</h1>
+          <p class="hero-sub">Repairs, nurse-led homecare and quality consulting — service you can trust, locally.</p>
+          <p class="hero-note">Established 2021 · Registered nurse-led · Hout Bay &amp; surrounds</p>
 
-          <div class="cta-row">
-            <a href="services.html" class="btn btn-primary">Help me choose →</a>
-            <a href="contact.html" class="btn btn-secondary">Contact us</a>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="mailto:Corine@wolservewc.co.za?subject=Care%20conversation%20request">Request a care conversation</a>
+            <a class="btn btn-outline" href="mailto:izak@wolservewc.co.za?subject=Equipment%20assessment%20request">Arrange an equipment assessment</a>
           </div>
 
-          <div class="trust-row">
-            <span>Established 2021 · Repairs, maintenance</span>
-            <span>Registered nurse-led homecare</span>
-            <span>Practical quality consulting</span>
-          </div>
+          <ul class="trust-list" aria-label="Key trust points">
+            <li>Registered nurse-led</li>
+            <li>Local &amp; responsive</li>
+            <li>Practical, accountable</li>
+          </ul>
         </div>
 
-        <div class="hero-media">
-          <img src="images/Picture 9.png" alt="Homecare consultation scene" class="alive-image">
+        <div class="hero-right" aria-hidden="false">
+          <picture class="hero-media">
+            <source srcset="images/Picture 9.png" media="(min-width:900px)">
+            <img src="images/Picture 9.png" alt="Homecare consultation scene" class="alive-image" loading="lazy">
+          </picture>
         </div>
       </div>
     </section>
@@ -78,7 +95,7 @@
         <div class="lead-grid">
           <article class="person-card">
             <div class="card-media">
-              <img src="images/Picture 2.png" alt="Izak Goss portrait" class="alive-image">
+              <img src="images/Picture 2.png" alt="Izak Goss portrait" class="alive-image" loading="lazy">
             </div>
             <div class="card-body">
               <div class="role">FOUNDER · OWNER · DIRECTOR</div>
@@ -91,10 +108,10 @@
 
           <article class="person-card">
             <div class="card-media">
-              <img src="images/Picture 3.png" alt="Sr Corine Goss portrait" class="alive-image">
+              <img src="images/Picture 3.png" alt="Sr Corine Goss portrait" class="alive-image" loading="lazy">
             </div>
             <div class="card-body">
-              <div class="role">DIRECTOR · HOMECARE & CONSULTING</div>
+              <div class="role">DIRECTOR · HOMECARE &amp; CONSULTING</div>
               <h3>Sr Corine Goss</h3>
               <p>Sr Corine Goss is a Registered Nurse with a BCur qualification in General, Community and Psychiatric Nursing and Midwifery, together with a specialisation in Intensive Care Nursing Science.</p>
               <p>Her clinical background is strengthened by approximately 25 years of senior corporate experience across healthcare, hospitality, facilities and service operations. She has developed healthcare divisions, policies, SOPs, training systems, quality programmes and practical solutions for complex working environments.</p>
@@ -156,15 +173,15 @@
             <span class="service-tag">01</span>
             <h3>Wolserve Western Cape (Pty) Ltd Services</h3>
             <p>The established core business continues under Founder, Owner and Director Izak Goss. Choose a service below to see the relevant photographs, the work offered and the next step.</p>
-            <img src="images/Picture 11.png" alt="Cleaning equipment repairs" class="service-photo">
+            <img src="images/Picture 11.png" alt="Cleaning equipment repairs" class="service-photo" loading="lazy">
           </article>
 
           <article class="service-card">
             <span class="service-tag">02</span>
-            <img src="images/Picture 8.png" alt="Homecare logo" class="homecare-logo">
+            <img src="images/Picture 8.png" alt="Homecare logo" class="homecare-logo" loading="lazy">
             <h3>Wolserve WC Homecare</h3>
             <p>Compassionate, person-centred support designed around the individual, their home and their family.</p>
-            <img src="images/Picture 9.png" alt="Homecare scene" class="service-photo">
+            <img src="images/Picture 9.png" alt="Homecare scene" class="service-photo" loading="lazy">
           </article>
 
           <article class="service-card">
@@ -185,7 +202,7 @@
 
         <div class="newsletter-box">
           <div class="newsletter-image">
-            <img src="images/Picture 4.png" alt="Newsletter feature portrait" class="alive-image">
+            <img src="images/Picture 4.png" alt="Newsletter feature portrait" class="alive-image" loading="lazy">
           </div>
           <div class="newsletter-copy">
             <h3>A new chapter for Wolserve Western Cape</h3>
@@ -198,7 +215,7 @@
 
         <div class="tribute-row">
           <div class="tribute-image">
-            <img src="images/Picture 5.png" alt="A Tribute to the Elderly" class="alive-image">
+            <img src="images/Picture 5.png" alt="A Tribute to the Elderly" class="alive-image" loading="lazy">
           </div>
           <div class="tribute-copy">
             <h3>Honouring those who came before us.</h3>
@@ -207,8 +224,8 @@
         </div>
 
         <div class="flower-grid">
-          <div class="flower-card"><img src="images/Picture 6.png" alt="Blushing Bride flower 1" class="alive-image"></div>
-          <div class="flower-card"><img src="images/Picture 7.png" alt="Blushing Bride flower 2" class="alive-image"></div>
+          <div class="flower-card"><img src="images/Picture 6.png" alt="Blushing Bride flower 1" class="alive-image" loading="lazy"></div>
+          <div class="flower-card"><img src="images/Picture 7.png" alt="Blushing Bride flower 2" class="alive-image" loading="lazy"></div>
         </div>
       </div>
     </section>
@@ -222,7 +239,7 @@
 
         <div class="equipment-grid">
           <div class="equipment-card">
-            <img src="images/Picture 14.png" alt="Homecare equipment set">
+            <img src="images/Picture 14.png" alt="Homecare equipment set" loading="lazy">
             <div>
               <p>Suitable medical aids and care equipment will be recommended, and their purpose, function and safe use discussed with the client and family. Wolserve Western Cape (Pty) Ltd will source suitable, economical and fit-for-purpose options for purchase or rental, taking the client’s needs and home environment into account, and ensure that delivery, installation and setup are completed correctly.</p>
               <a href="mailto:izak@wolservewc.co.za" class="btn btn-primary">Enquire about care equipment →</a>
@@ -230,7 +247,7 @@
           </div>
 
           <div class="equipment-card">
-            <img src="images/Picture 13.png" alt="Bath lift example">
+            <img src="images/Picture 13.png" alt="Bath lift example" loading="lazy">
             <div>
               <p>Repairs, maintenance and inspection of cleaning equipment to help keep it functioning reliably. Repairs, maintenance and inspection of cleaning equipment to help keep it functioning reliably.</p>
               <a href="contact.html" class="btn btn-secondary">Request a call</a>
@@ -251,9 +268,9 @@
           <a class="contact-card" href="mailto:Corine@wolservewc.co.za"><small>Sr Corine Goss</small><strong>Corine@wolservewc.co.za</strong></a>
           <a class="contact-card" href="mailto:izak@wolservewc.co.za"><small>Izak Goss</small><strong>izak@wolservewc.co.za</strong></a>
           <a class="contact-card" href="mailto:admin@wolservewc.co.za"><small>Administration</small><strong>admin@wolservewc.co.za</strong></a>
-          <a class="contact-card" href="tel:+27824691994"><small>Families & Homecare</small><strong>082 469 1994</strong></a>
-          <a class="contact-card" href="tel:+27670868490"><small>Careworker & Nursing Recruitment</small><strong>067 086 8490</strong></a>
-          <a class="contact-card" href="tel:+27824152234"><small>Repairs & Maintenance</small><strong>082 415 2234</strong></a>
+          <a class="contact-card" href="tel:+27824691994"><small>Families &amp; Homecare</small><strong>082 469 1994</strong></a>
+          <a class="contact-card" href="tel:+27670868490"><small>Careworker &amp; Nursing Recruitment</small><strong>067 086 8490</strong></a>
+          <a class="contact-card" href="tel:+27824152234"><small>Repairs &amp; Maintenance</small><strong>082 415 2234</strong></a>
         </div>
       </div>
     </section>
@@ -263,7 +280,7 @@
     <div class="container footer-inner">
       <div>
         <strong>Wolserve Western Cape (Pty) Ltd · Established 2021</strong>
-        <p>Repairs & Maintenance · Trading as Wolserve WC Homecare · Trading as Wolserve WC Consulting</p>
+        <p>Repairs &amp; Maintenance · Trading as Wolserve WC Homecare · Trading as Wolserve WC Consulting</p>
       </div>
       <div>
         <p>Christian-based values, with respect for people of all faiths and backgrounds.</p>
@@ -278,5 +295,8 @@
   </div>
 
   <script src="scripts.js" defer></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
