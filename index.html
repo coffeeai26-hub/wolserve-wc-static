@@ -11,46 +11,71 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <div class="brand-area">
-        <a href="index.html" class="brand" aria-label="Wolserve Western Cape home">
-          <img src="images/Picture 10.png" alt="Wolserve Western Cape logo" class="brand-logo">
-        </a>
-      </div>
+  <!-- Professional, accessible top navigation -->
+  <header class="top-nav" role="banner">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="index.html" aria-label="Wolserve Western Cape home">
+        <img src="images/Picture 10.png" alt="Wolserve Western Cape logo" class="nav-logo">
+      </a>
 
-      <button class="menu-trigger" id="menuTrigger" type="button" aria-expanded="false" aria-controls="mobileMenuPanel">
-        <span class="menu-trigger-icon" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-        <span>Menu</span>
-      </button>
+      <nav class="nav-center" role="navigation" aria-label="Primary navigation">
+        <ul class="nav-links" id="primaryNav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">Meet the Team</a></li>
+
+          <li class="has-dropdown" aria-haspopup="true">
+            <button class="dropdown-toggle" aria-expanded="false">Services</button>
+            <div class="dropdown-panel" role="menu">
+              <div class="dropdown-column">
+                <h4>Company services</h4>
+                <a href="services.html#property">Cleaning equipment repairs</a>
+                <a href="services.html#property">Sales / Rental of equipment</a>
+                <a href="services.html#property">Stone masonry</a>
+              </div>
+              <div class="dropdown-column">
+                <h4>Homecare & Consulting</h4>
+                <a href="services.html#homecare">Wolserve WC Homecare</a>
+                <a href="services.html#consulting">Wolserve WC Consulting</a>
+                <a href="newsletter.html">Newsletter</a>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="mailto:Corine@wolservewc.co.za">Request care</a>
+        <button id="mobileToggle" class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
 
-    <div class="mobile-menu-panel" id="mobileMenuPanel" aria-hidden="true">
-      <div class="panel-inner">
-        <div class="panel-section">
-          <a href="index.html">Home</a>
-          <a href="about.html">Meet the Team</a>
-          <a href="about.html#mission">Our mission</a>
-          <a href="newsletter.html">News &amp; monthly newsletter</a>
-        </div>
-
-        <div class="panel-section">
-          <a href="services.html#property" class="heading-link">Wolserve Western Cape (Pty) Ltd Services</a>
-          <a href="services.html#property">Wolserve Western Cape (Pty) Ltd Services</a>
-          <a href="services.html#property" class="sub-link">↘ Cleaning Equipment Repairs, Maintenance &amp; Inspection</a>
-          <a href="services.html#property" class="sub-link panel-highlight">↘ Sales/Rental of Homecare Medical Equipment</a>
-          <a href="services.html#property" class="sub-link">↘ Stone Masonry</a>
-          <a href="services.html#property" class="sub-link">↘ Wolserve WC (Pty) Ltd Call</a>
-        </div>
-
-        <div class="panel-section">
-          <a href="services.html#homecare">Homecare &amp; consulting</a>
-          <a href="services.html#homecare" class="sub-link">Wolserve WC Homecare</a>
-        </div>
+    <!-- Mobile overlay menu -->
+    <div id="mobileOverlay" class="mobile-overlay" aria-hidden="true">
+      <div class="overlay-inner">
+        <button id="mobileClose" class="overlay-close" aria-label="Close menu">✕</button>
+        <nav class="overlay-nav" aria-label="Mobile navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Meet the Team</a></li>
+            <li class="overlay-group">
+              <strong>Services</strong>
+              <ul>
+                <li><a href="services.html#property">Cleaning equipment repairs</a></li>
+                <li><a href="services.html#property">Sales / Rental of equipment</a></li>
+                <li><a href="services.html#homecare">Wolserve WC Homecare</a></li>
+                <li><a href="services.html#consulting">Wolserve WC Consulting</a></li>
+              </ul>
+            </li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="overlay-cta"><a class="btn btn-primary" href="mailto:Corine@wolservewc.co.za">Request a care conversation</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
   </header>
@@ -80,6 +105,8 @@
         </div>
       </div>
     </section>
+
+    <!-- rest of page unchanged (leadership, mission, etc) -->
 
     <section class="section leadership">
       <div class="container leadership-inner">

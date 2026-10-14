@@ -1,60 +1,82 @@
 (function () {
   const body = document.body;
 
-  const menuTrigger = document.getElementById('menuTrigger');
-  const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+  // Mobile overlay menu toggle
+  const mobileToggle = document.getElementById('mobileToggle');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+  const mobileClose = document.getElementById('mobileClose');
 
-  if (menuTrigger && mobileMenuPanel) {
-    menuTrigger.addEventListener('click', () => {
-      const isOpen = mobileMenuPanel.classList.contains('open');
-      mobileMenuPanel.classList.toggle('open', !isOpen);
-      menuTrigger.setAttribute('aria-expanded', String(!isOpen));
-      mobileMenuPanel.setAttribute('aria-hidden', String(isOpen));
-    });
-
-    document.addEventListener('click', (event) => {
-      if (!mobileMenuPanel.contains(event.target) && !menuTrigger.contains(event.target)) {
-        mobileMenuPanel.classList.remove('open');
-        menuTrigger.setAttribute('aria-expanded', 'false');
-        mobileMenuPanel.setAttribute('aria-hidden', 'true');
-      }
-    });
+  function openMobile() {
+    if (!mobileOverlay) return;
+    mobileOverlay.classList.add('open');
+    mobileOverlay.setAttribute('aria-hidden', 'false');
+    if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'true');
+    body.style.overflow = 'hidden';
   }
 
-  const navToggle = document.getElementById('nav-toggle');
-  const navToggleAbout = document.getElementById('nav-toggle-about');
-  const navToggleServices = document.getElementById('nav-toggle-services');
-  const navToggleNewsletter = document.getElementById('nav-toggle-newsletter');
-  const navToggleContact = document.getElementById('nav-toggle-contact');
+  function closeMobile() {
+    if (!mobileOverlay) return;
+    mobileOverlay.classList.remove('open');
+    mobileOverlay.setAttribute('aria-hidden', 'true');
+    if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
+    body.style.overflow = '';
+  }
 
-  const toggles = [navToggle, navToggleAbout, navToggleServices, navToggleNewsletter, navToggleContact];
-  const navs = [
-    document.getElementById('main-nav'),
-    document.getElementById('main-nav-about'),
-    document.getElementById('main-nav-services'),
-    document.getElementById('main-nav-newsletter'),
-    document.getElementById('main-nav-contact')
-  ];
+  if (mobileToggle) mobileToggle.addEventListener('click', openMobile);
+  if (mobileClose) mobileClose.addEventListener('click', closeMobile);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMobile();
+  });
 
-  toggles.forEach((toggle, idx) => {
-    const nav = navs[idx];
-    if (!toggle || !nav) return;
-    toggle.addEventListener('click', () => {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!expanded));
-      nav.classList.toggle('open');
+  document.addEventListener('click', (event) => {
+    if (!mobileOverlay) return;
+    if (mobileOverlay.classList.contains('open')) {
+      const inner = mobileOverlay.querySelector('.overlay-inner');
+      if (inner && !inner.contains(event.target) && !event.target.closest('#mobileToggle')) {
+        closeMobile();
+      }
+    }
+  });
+
+  // Desktop dropdown accessibility: open on focus, close on blur
+  document.querySelectorAll('.has-dropdown').forEach((wrap) => {
+    const button = wrap.querySelector('.dropdown-toggle');
+    const panel = wrap.querySelector('.dropdown-panel');
+    if (!button || !panel) return;
+
+    // keyboard support
+    button.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        panel.querySelector('a')?.focus();
+      }
+      if (e.key === 'Escape') {
+        button.focus();
+      }
+    });
+
+    // close panel when focus leaves
+    wrap.addEventListener('focusout', (e) => {
+      // delay to allow next element to receive focus
+      setTimeout(() => {
+        if (!wrap.contains(document.activeElement)) {
+          panel.style.display = '';
+          button.setAttribute('aria-expanded', 'false');
+        }
+      }, 10);
+    });
+
+    wrap.addEventListener('mouseenter', () => {
+      panel.style.display = 'block';
+      button.setAttribute('aria-expanded', 'true');
+    });
+    wrap.addEventListener('mouseleave', () => {
+      panel.style.display = '';
+      button.setAttribute('aria-expanded', 'false');
     });
   });
 
-  document.querySelectorAll('.submenu-button').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const open = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!open));
-      const wrap = btn.closest('.submenu-wrap');
-      wrap.classList.toggle('open', !open);
-    });
-  });
-
+  // Lightbox (unchanged)
   const lightbox = document.getElementById('lightbox');
   const lightboxImage = document.getElementById('lightbox-image');
   const lightboxClose = document.getElementById('lightbox-close');
@@ -67,7 +89,7 @@
     body.style.overflow = 'hidden';
   }
 
-  function closeLightbox() {
+  function closeLightboxFn() {
     if (!lightbox || !lightboxImage) return;
     lightboxImage.src = '';
     lightbox.setAttribute('aria-hidden', 'true');
@@ -79,20 +101,21 @@
     img.addEventListener('click', () => openLightbox(img.src));
   });
 
-  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightboxFn);
   if (lightbox) {
     lightbox.addEventListener('click', (event) => {
-      if (event.target === lightbox) closeLightbox();
+      if (event.target === lightbox) closeLightboxFn();
     });
   }
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeLightbox();
+    if (event.key === 'Escape') closeLightboxFn();
   });
 
+  // Pointer tilt, reduced-motion respectful
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!prefersReducedMotion) {
-    document.querySelectorAll('.hero-right img, .card-media img, .newsletter-image img, .tribute-image img, .flower-box img, .service-item img').forEach((el) => {
+    document.querySelectorAll('.hero-brand-panel img, .person-card img, .newsletter-image img, .tribute-image img, .flower-card img, .service-item img').forEach((el) => {
       el.addEventListener('pointermove', (e) => {
         const rect = el.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
