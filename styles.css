@@ -16,6 +16,7 @@
   --shadow: 0 12px 30px rgba(13, 35, 38, 0.08);
 }
 
+/* Base reset and layout */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -66,7 +67,7 @@ button, input, textarea, select { font: inherit; }
 .overlay-group strong { display: block; margin: 12px 0 6px; color: var(--brand-green-2); }
 .overlay-cta { margin-top: 18px; }
 
-/* Hero + rest kept from earlier */
+/* Hero + rest */
 .hero-pro { background: linear-gradient(180deg, rgba(255,255,255,0.38), rgba(227,236,232,0.5)); padding: 36px 0 18px; }
 .hero-brand-panel { width: 100%; min-height: 190px; background: rgba(255,255,255,0.45); border: 1px solid rgba(0,0,0,0.04); border-radius: 20px; display: flex; align-items: center; justify-content: center; padding: 28px 20px; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2); }
 .brand-large { width: min(820px, 100%); height: auto; object-fit: contain; }
@@ -79,30 +80,84 @@ button, input, textarea, select { font: inherit; }
 .intro-copy { max-width: 1100px; margin: 0; color: #2f4953; font-size: clamp(1.1rem, 2vw, 1.6rem); line-height: 1.4; text-align: center; }
 .hero-ctas { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 12px; }
 
-/* Leadership + team + mission sections unchanged from earlier - kept concise */
+/* Leadership + team + mission sections */
 .leadership { padding-top: 56px; }
 .leadership-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 52px; align-items: flex-start; }
 .leadership-copy h2 { font-family: "Montserrat", sans-serif; margin: 0; font-size: clamp(3.1rem, 6vw, 7rem); line-height: 0.9; letter-spacing: -0.07em; color: #0f1f22; font-weight: 800; }
 .leadership-copy h2 span { display: block; color: var(--brand-green-2); }
 
 .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-.person-card { background: rgba(255,255,255,0.18); border: 1px solid rgba(0,0,0,0.06); border-radius: 22px; overflow: hidden; }
-.person-body h3 { margin: 0 0 12px; font-family: "Montserrat", sans-serif; font-size: clamp(2.2rem, 4vw, 4rem); line-height: 0.95; }
 
+/* PERSON CARD: improved, non-cropping portrait handling */
+.person-card {
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 22px;
+  /* allow content to show beyond the rounded area if necessary */
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+
+/* media wrapper that centers the image and provides a soft background */
+.person-card .card-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--panel-alt);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  padding: 12px;
+  /* don't hide the image */
+  overflow: visible;
+}
+
+/* image rules: preserve full portrait, limit height to keep layout stable */
+.person-card .card-media img {
+  display: block;
+  width: auto;           /* allow portrait to keep its width naturally within the container */
+  max-width: 100%;
+  height: auto;
+  max-height: 720px;    /* prevents extreme vertical expansion on very tall photos */
+  object-fit: contain;
+  object-position: center top;
+  border-radius: 8px;
+}
+
+/* Person body content */
+.person-body {
+  padding: 18px;
+}
+.person-body .role {
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--brand-green-2);
+  margin-bottom: 8px;
+}
+.person-body h3 { margin: 0 0 12px; font-family: "Montserrat", sans-serif; font-size: clamp(2.2rem, 4vw, 4rem); line-height: 0.95; color: var(--dark); }
+.person-body p { margin: 0 0 14px; color: #2a3940; font-size: 1.04rem; line-height: 1.6; }
+.person-body a { color: var(--primary-dark); font-weight: 700; text-decoration: underline; }
+
+/* Mission and other sections */
 .mission-wrap { background: linear-gradient(135deg, #0f5257, #0d6a6d 30%, #0e4f52 100%); border-radius: 20px; padding: 42px 28px 20px; color: white; box-shadow: var(--shadow); }
 .mission-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 24px; }
 
 .site-footer { background: rgba(255,255,255,0.15); color: #20333c; padding: 26px 0 36px; border-top: 1px solid var(--line); }
 
-/* Responsive */
+/* Responsive adjustments */
 @media (max-width: 980px) {
   .nav-center { display: none; }
   .hamburger { display: block; }
   .nav-logo { height: 64px; }
   .leadership-inner, .team-grid, .mission-grid, .hero-inner { grid-template-columns: 1fr; }
   .intro-header-wrap h1 { font-size: clamp(2.8rem, 15vw, 5rem); }
+  /* limit portrait height further on small screens */
+  .person-card .card-media img { max-height: 520px; }
 }
 
+/* Accessibility: prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
