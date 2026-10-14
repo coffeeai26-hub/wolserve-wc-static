@@ -9,7 +9,7 @@
   --primary: #0d5c7a;
   --primary-dark: #0b596d;
   --brand-green: #0d7a78;
-  --brand-green-2: #0f5f5f;
+  --brand-green-2: #0b5560;
   --green-soft: rgba(146, 188, 181, 0.35);
   --text-muted: #2d3f48;
   --white: #ffffff;
@@ -66,7 +66,7 @@ button, input, textarea, select { font: inherit; }
 .has-dropdown:focus-within .dropdown-panel, .has-dropdown:hover .dropdown-panel { display: block; }
 
 .nav-actions { display: flex; align-items: center; gap: 12px; }
-.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; border-radius: 12px; font-weight: 700; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; border-radius: 12px; font-weight: 700; border: 0; cursor: pointer; }
 .btn-primary { background: var(--brand-green-2); color: white; box-shadow: 0 8px 28px rgba(13,92,90,0.12); }
 .btn-outline { background: transparent; border: 1px solid rgba(13,92,90,0.12); color: var(--brand-green-2); }
 .hamburger { display: none; background: transparent; border: 0; width: 42px; height: 42px; padding: 6px; cursor: pointer; }
@@ -248,6 +248,7 @@ button, input, textarea, select { font: inherit; }
 .contact-panel-header h2 { margin: 0; color: var(--contact-accent-strong); font-size: clamp(1.3rem, 2vw, 1.9rem); }
 .contact-page-links { display: flex; flex-wrap: wrap; gap: 10px; }
 .contact-page-links a { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(10, 61, 104, 0.18); background: rgba(255,255,255,0.35); color: var(--contact-accent-strong); font-weight: 700; }
+.contact-subhead { margin: 28px 0 14px; color: var(--contact-accent-strong); font-size: 1.2rem; }
 .contact-list { display: grid; gap: 14px; }
 .contact-item { display: grid; grid-template-columns: 52px 1fr auto; align-items: center; gap: 16px; width: 100%; padding: 18px 18px; border: 1px solid var(--contact-border); border-radius: 14px; background: rgba(255,255,255,0.42); color: var(--contact-accent-strong); text-decoration: none; transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease; }
 .contact-item:hover { transform: translateY(-1px); border-color: rgba(10, 61, 104, 0.28); box-shadow: 0 6px 18px rgba(10, 61, 104, 0.08); }
@@ -258,6 +259,20 @@ button, input, textarea, select { font: inherit; }
 .contact-arrow { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(10, 61, 104, 0.18); color: var(--contact-accent); font-size: 1.2rem; background: rgba(255,255,255,0.4); }
 .contact-footer-note { margin-top: 18px; color: var(--text-muted); font-size: 0.97rem; }
 .contact-footer-note strong { color: var(--contact-accent-strong); }
+
+/* Callback form */
+.contact-form { display: grid; gap: 14px; max-width: 640px; }
+.contact-form .field { display: grid; gap: 6px; }
+.contact-form label { font-weight: 700; color: var(--contact-accent-strong); font-size: .9rem; }
+.contact-form input, .contact-form select, .contact-form textarea {
+  padding: 11px 12px; border-radius: 10px; border: 1px solid var(--contact-border); background: #fff; width: 100%;
+}
+.contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+  outline: 3px solid rgba(11,85,96,0.18);
+  outline-offset: 2px;
+}
+.contact-form .form-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.form-status { color: var(--contact-accent-strong); font-weight: 700; font-size: .95rem; }
 
 .site-footer { background: rgba(255,255,255,0.15); color: #20333c; padding: 26px 0 36px; border-top: 1px solid var(--line); }
 .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
@@ -297,6 +312,7 @@ button, input, textarea, select { font: inherit; }
   .contact-item { grid-template-columns: 48px 1fr; }
   .contact-arrow { display: none; }
   .contact-urgent { flex-direction: column; align-items: flex-start; }
+  .contact-panel-header { flex-direction: column; align-items: flex-start; }
 }
 
 @media (prefers-reduced-motion: reduce) {

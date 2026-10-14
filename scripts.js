@@ -118,3 +118,47 @@
     if (event.key === 'Escape') closeLightboxFn();
   });
 })();
+
+/* Callback form: submits to sendmail.php with reCAPTCHA */
+(function () {
+  const form = document.getElementById('callbackForm');
+  if (!form) return;
+  const status = document.getElementById('cb-status');
+
+  function showStatus(msg, isError) {
+    status.textContent = msg;
+    status.style.color = isError ? '#b03a3a' : '';
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    if (!data.get('name') || !data.get('phone')) {
+      showStatus('Please enter your name and phone number.', true);
+      return;
+    }
+    if (!data.get('g-recaptcha-response')) {
+      showStatus('Please tick the reCAPTCHA box.', true);
+      return;
+    }
+
+    showStatus('Sending…');
+
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: data });
+      const json = await res.json().catch(() => null);
+      if (res.ok && json && json.success) {
+        showStatus('Thank you — we will call you back soon.');
+        form.reset();
+        if (window.grecaptcha) window.grecaptcha.reset();
+      } else {
+        showStatus((json && json.error) || 'Submission failed. Please phone us instead.', true);
+        if (window.grecaptcha) window.grecaptcha.reset();
+      }
+    } catch (err) {
+      showStatus('Network error — please try again or phone us.', true);
+    }
+  });
+})();

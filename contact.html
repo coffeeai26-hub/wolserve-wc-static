@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body class="contact-page">
   <header class="top-nav" role="banner">
@@ -97,13 +98,57 @@
         <div class="contact-layout">
           <div class="contact-panel">
             <div class="contact-panel-header">
-              <h2>Get in touch</h2>
+              <h2>Request a callback</h2>
               <div class="contact-page-links">
                 <a href="about.html">Meet the Team</a>
                 <a href="services.html">Our Services</a>
                 <a href="newsletter.html">Newsletter</a>
               </div>
             </div>
+
+            <form id="callbackForm" class="contact-form" method="POST" action="sendmail.php" novalidate>
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+
+              <div class="field">
+                <label for="cb-name">Full name *</label>
+                <input id="cb-name" name="name" type="text" required autocomplete="name">
+              </div>
+
+              <div class="field">
+                <label for="cb-phone">Phone number *</label>
+                <input id="cb-phone" name="phone" type="tel" required autocomplete="tel" placeholder="e.g. 082 469 1994">
+              </div>
+
+              <div class="field">
+                <label for="cb-email">Your email (optional)</label>
+                <input id="cb-email" name="email" type="email" autocomplete="email">
+              </div>
+
+              <div class="field">
+                <label for="cb-time">Preferred contact time</label>
+                <select id="cb-time" name="preferred_time">
+                  <option value="">Anytime</option>
+                  <option>Morning (08:00–12:00)</option>
+                  <option>Afternoon (12:00–17:00)</option>
+                  <option>Evening (after 17:00)</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="cb-message">Short note (optional)</label>
+                <textarea id="cb-message" name="message" rows="3" placeholder="Briefly describe what you need"></textarea>
+              </div>
+
+              <!-- Replace YOUR_RECAPTCHA_SITE_KEY with your reCAPTCHA v2 (checkbox) site key -->
+              <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Request a callback</button>
+                <div id="cb-status" class="form-status" aria-live="polite" role="status"></div>
+              </div>
+            </form>
+
+            <h3 class="contact-subhead">Or contact us directly</h3>
 
             <div class="contact-list">
               <a class="contact-item" href="mailto:Corine@wolservewc.co.za">
