@@ -38,13 +38,12 @@
     }
   });
 
-  // Desktop dropdown accessibility: open on focus, close on blur
+  // Desktop dropdown accessibility
   document.querySelectorAll('.has-dropdown').forEach((wrap) => {
     const button = wrap.querySelector('.dropdown-toggle');
     const panel = wrap.querySelector('.dropdown-panel');
     if (!button || !panel) return;
 
-    // keyboard support
     button.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowDown') {
         e.preventDefault();
@@ -55,9 +54,7 @@
       }
     });
 
-    // close panel when focus leaves
-    wrap.addEventListener('focusout', (e) => {
-      // delay to allow next element to receive focus
+    wrap.addEventListener('focusout', () => {
       setTimeout(() => {
         if (!wrap.contains(document.activeElement)) {
           panel.style.display = '';
@@ -76,7 +73,29 @@
     });
   });
 
-  // Lightbox (unchanged)
+  // Gracefully handle broken/missing images
+  document.querySelectorAll('img').forEach((img) => {
+    img.addEventListener('error', function () {
+      const parent = this.parentElement;
+      this.style.display = 'none';
+      if (parent) {
+        parent.classList.add('image-missing');
+      }
+    });
+  });
+
+  // Contact form success message
+  const contactForm = document.getElementById('contactForm');
+  const formSuccess = document.getElementById('formSuccess');
+  if (contactForm && formSuccess) {
+    contactForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      formSuccess.classList.add('visible');
+      contactForm.reset();
+    });
+  }
+
+  // Lightbox for gallery-style images
   const lightbox = document.getElementById('lightbox');
   const lightboxImage = document.getElementById('lightbox-image');
   const lightboxClose = document.getElementById('lightbox-close');
@@ -111,20 +130,4 @@
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') closeLightboxFn();
   });
-
-  // Pointer tilt, reduced-motion respectful
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!prefersReducedMotion) {
-    document.querySelectorAll('.hero-brand-panel img, .person-card img, .newsletter-image img, .tribute-image img, .flower-card img, .service-item img').forEach((el) => {
-      el.addEventListener('pointermove', (e) => {
-        const rect = el.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        el.style.transform = `perspective(800px) rotateX(${(-y * 4).toFixed(2)}deg) rotateY(${(x * 5).toFixed(2)}deg)`;
-      });
-      el.addEventListener('pointerleave', () => {
-        el.style.transform = '';
-      });
-    });
-  }
 })();

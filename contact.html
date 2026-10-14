@@ -87,7 +87,57 @@
           <p>Tell us a little about what you need. We’ll help you decide on the right approach—without obligation.</p>
         </div>
 
-        <div class="contact-grid">
+        <div class="contact-panel">
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required>
+              </div>
+              <div class="form-field">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" placeholder="your@email.com" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="phone">Phone number</label>
+                <input id="phone" name="phone" type="tel" placeholder="+27 ...">
+              </div>
+              <div class="form-field">
+                <label for="service">Service needed</label>
+                <select id="service" name="service">
+                  <option value="">Select a service</option>
+                  <option>Cleaning equipment repairs</option>
+                  <option>Homecare &amp; family support</option>
+                  <option>Consulting &amp; quality</option>
+                  <option>General enquiry</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us a little about what you need..." required></textarea>
+            </div>
+
+            <label class="form-check" for="consent">
+              <input id="consent" name="consent" type="checkbox" required>
+              <span>I agree to be contacted about this enquiry.</span>
+            </label>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Send enquiry</button>
+            </div>
+
+            <div id="formSuccess" class="form-success" aria-live="polite">
+              Your message has been drafted. Please use the email links above to send it directly, or email admin@wolservewc.co.za.
+            </div>
+          </form>
+        </div>
+
+        <div class="contact-grid" style="margin-top: 26px;">
           <a class="contact-card" href="mailto:Corine@wolservewc.co.za"><small>Sr Corine Goss</small><strong>Corine@wolservewc.co.za</strong></a>
           <a class="contact-card" href="mailto:izak@wolservewc.co.za"><small>Izak Goss</small><strong>izak@wolservewc.co.za</strong></a>
           <a class="contact-card" href="mailto:admin@wolservewc.co.za"><small>Administration</small><strong>admin@wolservewc.co.za</strong></a>
