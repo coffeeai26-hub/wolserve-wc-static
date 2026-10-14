@@ -1,7 +1,6 @@
 (function () {
   const body = document.body;
 
-  // Mobile overlay menu toggle
   const mobileToggle = document.getElementById('mobileToggle');
   const mobileOverlay = document.getElementById('mobileOverlay');
   const mobileClose = document.getElementById('mobileClose');
@@ -24,6 +23,7 @@
 
   if (mobileToggle) mobileToggle.addEventListener('click', openMobile);
   if (mobileClose) mobileClose.addEventListener('click', closeMobile);
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeMobile();
   });
@@ -38,7 +38,6 @@
     }
   });
 
-  // Desktop dropdown accessibility
   document.querySelectorAll('.has-dropdown').forEach((wrap) => {
     const button = wrap.querySelector('.dropdown-toggle');
     const panel = wrap.querySelector('.dropdown-panel');
@@ -67,13 +66,13 @@
       panel.style.display = 'block';
       button.setAttribute('aria-expanded', 'true');
     });
+
     wrap.addEventListener('mouseleave', () => {
       panel.style.display = '';
       button.setAttribute('aria-expanded', 'false');
     });
   });
 
-  // Gracefully handle broken/missing images
   document.querySelectorAll('img').forEach((img) => {
     img.addEventListener('error', function () {
       const parent = this.parentElement;
@@ -84,18 +83,6 @@
     });
   });
 
-  // Contact form success message
-  const contactForm = document.getElementById('contactForm');
-  const formSuccess = document.getElementById('formSuccess');
-  if (contactForm && formSuccess) {
-    contactForm.addEventListener('submit', function (event) {
-      event.preventDefault();
-      formSuccess.classList.add('visible');
-      contactForm.reset();
-    });
-  }
-
-  // Lightbox for gallery-style images
   const lightbox = document.getElementById('lightbox');
   const lightboxImage = document.getElementById('lightbox-image');
   const lightboxClose = document.getElementById('lightbox-close');
