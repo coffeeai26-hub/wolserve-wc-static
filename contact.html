@@ -4,31 +4,77 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Wolserve Western Cape — Contact</title>
+  <meta name="description" content="Contact Wolserve Western Cape." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="index.html" class="brand"><img src="images/Picture 10.png" alt="Wolserve logo" class="brand-logo"></a>
-      <button class="nav-toggle" id="nav-toggle-contact" type="button" aria-expanded="false" aria-controls="main-nav-contact">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="main-nav-contact" class="main-nav">
-        <ul class="menu">
+  <header class="top-nav" role="banner">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="index.html" aria-label="Wolserve Western Cape home">
+        <img src="images/Picture 10.png" alt="Wolserve Western Cape logo" class="nav-logo">
+      </a>
+
+      <nav class="nav-center" role="navigation" aria-label="Primary navigation">
+        <ul class="nav-links" id="primaryNav">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">Meet the Team</a></li>
-          <li class="submenu-wrap">
-            <button class="submenu-button" type="button" aria-expanded="false">Services</button>
-            <ul class="submenu">
-              <li><a href="services.html#property">Property Services</a></li>
-              <li><a href="services.html#homecare">Homecare</a></li>
-              <li><a href="services.html#consulting">Consulting & Quality</a></li>
-            </ul>
+
+          <li class="has-dropdown" aria-haspopup="true">
+            <button class="dropdown-toggle" aria-expanded="false">Services</button>
+            <div class="dropdown-panel" role="menu">
+              <div class="dropdown-column">
+                <h4>Company services</h4>
+                <a href="services.html#property">Cleaning equipment repairs</a>
+                <a href="services.html#property">Sales / Rental of equipment</a>
+                <a href="services.html#property">Stone masonry</a>
+              </div>
+              <div class="dropdown-column">
+                <h4>Homecare &amp; Consulting</h4>
+                <a href="services.html#homecare">Wolserve WC Homecare</a>
+                <a href="services.html#consulting">Wolserve WC Consulting</a>
+                <a href="newsletter.html">Newsletter</a>
+              </div>
+            </div>
           </li>
+
           <li><a href="newsletter.html">Newsletter</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="mailto:Corine@wolservewc.co.za">Request care</a>
+        <button id="mobileToggle" class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileOverlay" class="mobile-overlay" aria-hidden="true">
+      <div class="overlay-inner">
+        <button id="mobileClose" class="overlay-close" aria-label="Close menu">✕</button>
+        <nav class="overlay-nav" aria-label="Mobile navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Meet the Team</a></li>
+            <li class="overlay-group">
+              <strong>Services</strong>
+              <ul>
+                <li><a href="services.html#property">Cleaning equipment repairs</a></li>
+                <li><a href="services.html#property">Sales / Rental of equipment</a></li>
+                <li><a href="services.html#homecare">Wolserve WC Homecare</a></li>
+                <li><a href="services.html#consulting">Wolserve WC Consulting</a></li>
+              </ul>
+            </li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="overlay-cta"><a class="btn btn-primary" href="mailto:Corine@wolservewc.co.za">Request a care conversation</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -45,9 +91,9 @@
           <a class="contact-card" href="mailto:Corine@wolservewc.co.za"><small>Sr Corine Goss</small><strong>Corine@wolservewc.co.za</strong></a>
           <a class="contact-card" href="mailto:izak@wolservewc.co.za"><small>Izak Goss</small><strong>izak@wolservewc.co.za</strong></a>
           <a class="contact-card" href="mailto:admin@wolservewc.co.za"><small>Administration</small><strong>admin@wolservewc.co.za</strong></a>
-          <a class="contact-card" href="tel:+27824691994"><small>Families & Homecare</small><strong>082 469 1994</strong></a>
-          <a class="contact-card" href="tel:+27670868490"><small>Careworker & Nursing Recruitment</small><strong>067 086 8490</strong></a>
-          <a class="contact-card" href="tel:+27824152234"><small>Repairs & Maintenance</small><strong>082 415 2234</strong></a>
+          <a class="contact-card" href="tel:+27824691994"><small>Families &amp; Homecare</small><strong>082 469 1994</strong></a>
+          <a class="contact-card" href="tel:+27670868490"><small>Careworker &amp; Nursing Recruitment</small><strong>067 086 8490</strong></a>
+          <a class="contact-card" href="tel:+27824152234"><small>Repairs &amp; Maintenance</small><strong>082 415 2234</strong></a>
         </div>
       </div>
     </section>
@@ -66,5 +112,8 @@
   </div>
 
   <script src="scripts.js" defer></script>
+  <script>
+    document.getElementById('year-contact').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

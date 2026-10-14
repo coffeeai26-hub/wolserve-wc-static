@@ -4,31 +4,77 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Wolserve Western Cape — Services</title>
+  <meta name="description" content="Wolserve Western Cape services overview." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="index.html" class="brand"><img src="images/Picture 10.png" alt="Wolserve logo" class="brand-logo"></a>
-      <button class="nav-toggle" id="nav-toggle-services" type="button" aria-expanded="false" aria-controls="main-nav-services">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="main-nav-services" class="main-nav">
-        <ul class="menu">
+  <header class="top-nav" role="banner">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="index.html" aria-label="Wolserve Western Cape home">
+        <img src="images/Picture 10.png" alt="Wolserve Western Cape logo" class="nav-logo">
+      </a>
+
+      <nav class="nav-center" role="navigation" aria-label="Primary navigation">
+        <ul class="nav-links" id="primaryNav">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">Meet the Team</a></li>
-          <li class="submenu-wrap">
-            <button class="submenu-button" type="button" aria-expanded="false">Services</button>
-            <ul class="submenu">
-              <li><a href="#property">Property Services</a></li>
-              <li><a href="#homecare">Homecare</a></li>
-              <li><a href="#consulting">Consulting & Quality</a></li>
-            </ul>
+
+          <li class="has-dropdown" aria-haspopup="true">
+            <button class="dropdown-toggle" aria-expanded="false">Services</button>
+            <div class="dropdown-panel" role="menu">
+              <div class="dropdown-column">
+                <h4>Company services</h4>
+                <a href="#property">Cleaning equipment repairs</a>
+                <a href="#property">Sales / Rental of equipment</a>
+                <a href="#property">Stone masonry</a>
+              </div>
+              <div class="dropdown-column">
+                <h4>Homecare &amp; Consulting</h4>
+                <a href="#homecare">Wolserve WC Homecare</a>
+                <a href="#consulting">Wolserve WC Consulting</a>
+                <a href="newsletter.html">Newsletter</a>
+              </div>
+            </div>
           </li>
+
           <li><a href="newsletter.html">Newsletter</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="mailto:Corine@wolservewc.co.za">Request care</a>
+        <button id="mobileToggle" class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileOverlay" class="mobile-overlay" aria-hidden="true">
+      <div class="overlay-inner">
+        <button id="mobileClose" class="overlay-close" aria-label="Close menu">✕</button>
+        <nav class="overlay-nav" aria-label="Mobile navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Meet the Team</a></li>
+            <li class="overlay-group">
+              <strong>Services</strong>
+              <ul>
+                <li><a href="#property">Cleaning equipment repairs</a></li>
+                <li><a href="#property">Sales / Rental of equipment</a></li>
+                <li><a href="#homecare">Wolserve WC Homecare</a></li>
+                <li><a href="#consulting">Wolserve WC Consulting</a></li>
+              </ul>
+            </li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="overlay-cta"><a class="btn btn-primary" href="mailto:Corine@wolservewc.co.za">Request a care conversation</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -44,7 +90,7 @@
           <div class="service-item">
             <img src="images/Picture 11.png" alt="Cleaning equipment repair" class="alive-image">
             <div>
-              <h3>Cleaning Equipment Repairs, Maintenance & Inspection</h3>
+              <h3>Cleaning Equipment Repairs, Maintenance &amp; Inspection</h3>
               <p>Repairs, maintenance and inspection of cleaning equipment to help keep it functioning reliably.</p>
             </div>
           </div>
@@ -53,7 +99,7 @@
             <img src="images/Picture 14.png" alt="Homecare equipment set" class="alive-image">
             <div>
               <h3>Sales/Rental of Homecare Medical Equipment</h3>
-              <p>Suitable medical aids and care equipment will be recommended, and their purpose, function and safe use discussed with the client and family. Wolserve Western Cape (Pty) Ltd will source suitable, economical and fit-for-purpose options for purchase or rental, taking the client’s needs and home environment into account, and ensure that delivery, installation and setup are completed correctly.</p>
+              <p>Suitable medical aids and care equipment will be recommended, and their purpose, function and safe use discussed with the client and family.</p>
             </div>
           </div>
 
@@ -87,8 +133,8 @@
           <div class="service-item">
             <img src="images/Picture 12.png" alt="Homecare support example" class="alive-image">
             <div>
-              <h3>Assessment & Care planning</h3>
-              <p>Registered nurse assessment and ongoing monitoring. Tailored quotations follow assessment based on care needs, hours, staff qualifications, nurse visits and additional support requirements.</p>
+              <h3>Assessment &amp; Care planning</h3>
+              <p>Registered nurse assessment and ongoing monitoring. Tailored quotations follow assessment based on care needs, hours, staff qualifications and support requirements.</p>
             </div>
           </div>
         </div>
@@ -98,7 +144,7 @@
     <section id="consulting" class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Consulting, Auditing & Quality</h2>
+          <h2>Consulting, Auditing &amp; Quality</h2>
           <p>Practical guidance for safer, cleaner and more consistent services across complex environments.</p>
         </div>
 
@@ -106,7 +152,7 @@
           <div class="service-item">
             <img src="images/Picture 9.png" alt="Consulting scene" class="alive-image">
             <div>
-              <h3>Operational audits & SOPs</h3>
+              <h3>Operational audits &amp; SOPs</h3>
               <p>Policies, SOPs, schedules, checklists and on-the-job training to support safer service operations.</p>
             </div>
           </div>
@@ -128,5 +174,8 @@
   </div>
 
   <script src="scripts.js" defer></script>
+  <script>
+    document.getElementById('year-services').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

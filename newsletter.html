@@ -4,31 +4,77 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Wolserve Western Cape — Newsletter</title>
+  <meta name="description" content="Wolserve Western Cape newsletter and updates." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="index.html" class="brand"><img src="images/Picture 10.png" alt="Wolserve logo" class="brand-logo"></a>
-      <button class="nav-toggle" id="nav-toggle-newsletter" type="button" aria-expanded="false" aria-controls="main-nav-newsletter">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="main-nav-newsletter" class="main-nav">
-        <ul class="menu">
+  <header class="top-nav" role="banner">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="index.html" aria-label="Wolserve Western Cape home">
+        <img src="images/Picture 10.png" alt="Wolserve Western Cape logo" class="nav-logo">
+      </a>
+
+      <nav class="nav-center" role="navigation" aria-label="Primary navigation">
+        <ul class="nav-links" id="primaryNav">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">Meet the Team</a></li>
-          <li class="submenu-wrap">
-            <button class="submenu-button" type="button" aria-expanded="false">Services</button>
-            <ul class="submenu">
-              <li><a href="services.html#property">Property Services</a></li>
-              <li><a href="services.html#homecare">Homecare</a></li>
-              <li><a href="services.html#consulting">Consulting & Quality</a></li>
-            </ul>
+
+          <li class="has-dropdown" aria-haspopup="true">
+            <button class="dropdown-toggle" aria-expanded="false">Services</button>
+            <div class="dropdown-panel" role="menu">
+              <div class="dropdown-column">
+                <h4>Company services</h4>
+                <a href="services.html#property">Cleaning equipment repairs</a>
+                <a href="services.html#property">Sales / Rental of equipment</a>
+                <a href="services.html#property">Stone masonry</a>
+              </div>
+              <div class="dropdown-column">
+                <h4>Homecare &amp; Consulting</h4>
+                <a href="services.html#homecare">Wolserve WC Homecare</a>
+                <a href="services.html#consulting">Wolserve WC Consulting</a>
+                <a href="newsletter.html">Newsletter</a>
+              </div>
+            </div>
           </li>
+
           <li><a href="newsletter.html">Newsletter</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="mailto:Corine@wolservewc.co.za">Request care</a>
+        <button id="mobileToggle" class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileOverlay" class="mobile-overlay" aria-hidden="true">
+      <div class="overlay-inner">
+        <button id="mobileClose" class="overlay-close" aria-label="Close menu">✕</button>
+        <nav class="overlay-nav" aria-label="Mobile navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Meet the Team</a></li>
+            <li class="overlay-group">
+              <strong>Services</strong>
+              <ul>
+                <li><a href="services.html#property">Cleaning equipment repairs</a></li>
+                <li><a href="services.html#property">Sales / Rental of equipment</a></li>
+                <li><a href="services.html#homecare">Wolserve WC Homecare</a></li>
+                <li><a href="services.html#consulting">Wolserve WC Consulting</a></li>
+              </ul>
+            </li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="overlay-cta"><a class="btn btn-primary" href="mailto:Corine@wolservewc.co.za">Request a care conversation</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -47,10 +93,10 @@
 
           <article class="newsletter-copy">
             <h3>A new chapter for Wolserve Western Cape</h3>
-            <p>We are delighted to introduce Wolserve WC Homecare and Wolserve WC Consulting—two new service divisions trading under Wolserve Western Cape (Pty) Ltd and joining our established Repairs & Maintenance services. Our website is now live, and we are preparing for the commencement of Homecare services.</p>
+            <p>We are delighted to introduce Wolserve WC Homecare and Wolserve WC Consulting—two new service divisions trading under Wolserve Western Cape (Pty) Ltd and joining our established repair and maintenance services.</p>
             <p><strong>Homecare registration update:</strong> Wolserve WC Homecare’s DSD registration application is pending. We welcome enquiries about future care needs; service commencement is subject to the required approvals.</p>
-            <p>We are excited about what lies ahead and grateful to every family, client, colleague and community partner who supports this journey. We look forward to learning, growing and serving together.</p>
-            <p class="signature">With gratitude, Izak Goss & Sr Corine Goss</p>
+            <p>We are excited about what lies ahead and grateful to every family, client, colleague and community partner who supports this journey. We look forward to learning, growing and serving with care.</p>
+            <p class="signature">With gratitude, Izak Goss &amp; Sr Corine Goss</p>
           </article>
         </div>
 
@@ -60,7 +106,7 @@
           </div>
           <div class="tribute-copy">
             <h3>Honouring those who came before us.</h3>
-            <p>With care for older people at the heart of Wolserve WC Homecare, we are pleased to include this thoughtful tribute in our first issue. It honours the lives, sacrifices, wisdom and guidance of those who have walked the road before us—values that sit naturally alongside our commitment to dignity, choice, compassion and respect.</p>
+            <p>With care for older people at the heart of Wolserve WC Homecare, we are pleased to include this thoughtful tribute in our first issue.</p>
           </div>
         </div>
 
@@ -89,5 +135,8 @@
   </div>
 
   <script src="scripts.js" defer></script>
+  <script>
+    document.getElementById('year-newsletter').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

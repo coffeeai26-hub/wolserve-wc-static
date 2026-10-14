@@ -4,31 +4,77 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Wolserve Western Cape — Meet the Team</title>
+  <meta name="description" content="Meet the team behind Wolserve Western Cape." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="index.html" class="brand"><img src="images/Picture 10.png" alt="Wolserve Western Cape logo" class="brand-logo"></a>
-      <button class="nav-toggle" id="nav-toggle-about" type="button" aria-expanded="false" aria-controls="main-nav-about">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="main-nav-about" class="main-nav">
-        <ul class="menu">
+  <header class="top-nav" role="banner">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="index.html" aria-label="Wolserve Western Cape home">
+        <img src="images/Picture 10.png" alt="Wolserve Western Cape logo" class="nav-logo">
+      </a>
+
+      <nav class="nav-center" role="navigation" aria-label="Primary navigation">
+        <ul class="nav-links" id="primaryNav">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">Meet the Team</a></li>
-          <li class="submenu-wrap">
-            <button class="submenu-button" type="button" aria-expanded="false">Services</button>
-            <ul class="submenu">
-              <li><a href="services.html#property">Property Services</a></li>
-              <li><a href="services.html#homecare">Homecare</a></li>
-              <li><a href="services.html#consulting">Consulting &amp; Quality</a></li>
-            </ul>
+
+          <li class="has-dropdown" aria-haspopup="true">
+            <button class="dropdown-toggle" aria-expanded="false">Services</button>
+            <div class="dropdown-panel" role="menu">
+              <div class="dropdown-column">
+                <h4>Company services</h4>
+                <a href="services.html#property">Cleaning equipment repairs</a>
+                <a href="services.html#property">Sales / Rental of equipment</a>
+                <a href="services.html#property">Stone masonry</a>
+              </div>
+              <div class="dropdown-column">
+                <h4>Homecare &amp; Consulting</h4>
+                <a href="services.html#homecare">Wolserve WC Homecare</a>
+                <a href="services.html#consulting">Wolserve WC Consulting</a>
+                <a href="newsletter.html">Newsletter</a>
+              </div>
+            </div>
           </li>
+
           <li><a href="newsletter.html">Newsletter</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="mailto:Corine@wolservewc.co.za">Request care</a>
+        <button id="mobileToggle" class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileOverlay" class="mobile-overlay" aria-hidden="true">
+      <div class="overlay-inner">
+        <button id="mobileClose" class="overlay-close" aria-label="Close menu">✕</button>
+        <nav class="overlay-nav" aria-label="Mobile navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Meet the Team</a></li>
+            <li class="overlay-group">
+              <strong>Services</strong>
+              <ul>
+                <li><a href="services.html#property">Cleaning equipment repairs</a></li>
+                <li><a href="services.html#property">Sales / Rental of equipment</a></li>
+                <li><a href="services.html#homecare">Wolserve WC Homecare</a></li>
+                <li><a href="services.html#consulting">Wolserve WC Consulting</a></li>
+              </ul>
+            </li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="overlay-cta"><a class="btn btn-primary" href="mailto:Corine@wolservewc.co.za">Request a care conversation</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -47,7 +93,8 @@
             <div class="card-body">
               <div class="role">FOUNDER · OWNER · DIRECTOR</div>
               <h2>Izak Goss</h2>
-              <p>Izak is the Founder, Owner and Director of Wolserve Western Cape (Pty) Ltd, established in 2021. He has led the company and its repair and maintenance services for years. As the umbrella company grows, Izak continues to lead cleaning-equipment repairs, maintenance and inspection, home-safety consultation and stone masonry, while providing company oversight across all three service areas.</p>
+              <p>Izak is the Founder, Owner and Director of Wolserve Western Cape (Pty) Ltd, established in 2021. He has led the company and its repair and maintenance services for years.</p>
+              <p>As the umbrella company grows, Izak continues to lead cleaning-equipment repairs, maintenance and inspection, home-safety consultation and stone masonry, while providing company oversight across all three service areas.</p>
               <a href="mailto:izak@wolservewc.co.za">izak@wolservewc.co.za</a>
             </div>
           </article>
@@ -59,7 +106,8 @@
             <div class="card-body">
               <div class="role">DIRECTOR · HOMECARE &amp; CONSULTING</div>
               <h2>Sr Corine Goss</h2>
-              <p>Sr Corine Goss is a Registered Nurse with a BCur qualification in General, Community and Psychiatric Nursing and Midwifery, together with a specialisation in Intensive Care Nursing Science. Her clinical background is strengthened by approximately 25 years of senior corporate experience across healthcare, hospitality, facilities and service operations. She has developed healthcare divisions, policies, SOPs, training systems, quality programmes and practical solutions for complex working environments.</p>
+              <p>Sr Corine Goss is a Registered Nurse with a BCur qualification in General, Community and Psychiatric Nursing and Midwifery, together with a specialisation in Intensive Care Nursing Science.</p>
+              <p>Her clinical background is strengthened by approximately 25 years of senior corporate experience across healthcare, hospitality, facilities and service operations.</p>
               <p>As Director of Wolserve WC Homecare and Wolserve WC Consulting, Sr Corine uses that knowledge to help clients remain safe, independent and well cared for in the place they choose—usually their own home—and to help organisations build practical standards and systems that work.</p>
               <a href="mailto:Corine@wolservewc.co.za">Corine@wolservewc.co.za</a>
             </div>
@@ -82,5 +130,8 @@
   </div>
 
   <script src="scripts.js" defer></script>
+  <script>
+    document.getElementById('year-about').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
