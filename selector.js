@@ -109,7 +109,7 @@
     again.type = 'button';
     again.addEventListener('click', step1);
     actions.append(mail, wa, call);
-    root.append(actions, el('small', 'selector-foot', 'WhatsApp prepares a message for you to send. Call requests use the callback form below.'), again);
+    root.append(actions, el('small', 'selector-foot', 'WhatsApp prepares a message for you to send. Request a call takes you to the callback form below.'), again);
     const back = el('button', 'selector-link', 'Change my answer');
     back.type = 'button';
     back.addEventListener('click', () => step2(q));

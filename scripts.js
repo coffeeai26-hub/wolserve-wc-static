@@ -119,7 +119,7 @@
   });
 })();
 
-/* Callback form: submits to sendmail.php with reCAPTCHA */
+/* Callback form: submits to sendmail.php */
 (function () {
   const form = document.getElementById('callbackForm');
   if (!form) return;
@@ -139,10 +139,6 @@
       showStatus('Please enter your name and phone number.', true);
       return;
     }
-    if (!data.get('g-recaptcha-response')) {
-      showStatus('Please tick the reCAPTCHA box.', true);
-      return;
-    }
 
     showStatus('Sending…');
 
@@ -152,10 +148,8 @@
       if (res.ok && json && json.success) {
         showStatus('Thank you — we will call you back soon.');
         form.reset();
-        if (window.grecaptcha) window.grecaptcha.reset();
       } else {
         showStatus((json && json.error) || 'Submission failed. Please phone us instead.', true);
-        if (window.grecaptcha) window.grecaptcha.reset();
       }
     } catch (err) {
       showStatus('Network error — please try again or phone us.', true);
