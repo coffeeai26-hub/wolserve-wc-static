@@ -11,7 +11,7 @@
   const questions = [
     { key: 'family', label: 'An individual or family', options: [
       { label: 'A care assessment', r: 'rn' },
-      { label: 'Daily or live-in care', r: 'rn' },
+      { label: 'Daily or live-in care', r: 'match' },
       { label: 'Nurse oversight', r: 'oversight' },
       { label: 'Something else', r: 'good' } ] },
     { key: 'org', label: 'An organisation or team', options: [
@@ -31,17 +31,18 @@
   ];
 
   const results = {
-    rn: { tag: 'Wolserve WC Homecare', title: 'Start with an RN-led care conversation.', text: 'Sr Corine Goss, a registered nurse, will talk through the care needed and arrange an assessment.', who: 'corine' },
-    oversight: { tag: 'Wolserve WC Homecare', title: 'Strengthen care with nurse oversight.', text: 'Registered-nurse oversight can support existing carers and keep the care plan current.', who: 'corine' },
-    good: { tag: 'Wolserve WC Homecare', title: 'Tell us what good support would look like.', text: 'Send Corine a short description of the situation and she will suggest a sensible next step.', who: 'corine' },
-    review: { tag: 'Wolserve WC Consulting', title: 'Begin with a focused operational review.', text: 'A quality or cleaning audit shows where standards are working and where they need attention.', who: 'corine' },
-    docs: { tag: 'Wolserve WC Consulting', title: 'Turn standards into workable documents.', text: 'Policies, SOPs, schedules and checklists written for the way your team actually works.', who: 'corine' },
-    practice: { tag: 'Wolserve WC Consulting', title: 'Build standards into daily practice.', text: 'Staff training and on-the-job implementation so standards are followed every day.', who: 'corine' },
-    brief: { tag: 'Wolserve WC Consulting', title: 'Shape the brief with Corine.', text: 'Describe the service-improvement project and Corine will help define scope and priorities.', who: 'corine' },
-    repair: { tag: 'Wolserve Western Cape (Pty) Ltd Services', title: "Let's understand the repair or maintenance work needed.", text: 'Tell Izak about the cleaning equipment and what needs repair, maintenance or inspection.', who: 'izak' },
-    medequip: { tag: 'Wolserve Western Cape (Pty) Ltd Services', title: 'Discuss homecare medical equipment with Izak.', text: 'Izak can advise on sales or rental of suitable homecare medical equipment.', who: 'izak' },
-    stone: { tag: 'Wolserve Western Cape (Pty) Ltd Services', title: 'Discuss the stonework with Izak.', text: 'Share the site and what you want built, such as stone masonry or retaining walls.', who: 'izak' },
-    short: { tag: 'Wolserve WC', title: 'Start with a short conversation.', text: 'Send Corine a brief note and she will direct you to Wolserve WC Homecare, Wolserve WC Consulting or Izak for repairs and maintenance services.', who: 'corine' }
+    rn: { tag: "Wolserve WC Homecare", title: "Start with an RN-led care conversation.", text: "The nursing sister's home visit includes the client's care assessment, care planning and a home-safety assessment, considering mobility, access and suitable equipment.", who: 'corine', page: "homecare.html" },
+    oversight: { tag: "Wolserve WC Homecare", title: "Strengthen care with nurse oversight.", text: "A conversation with Corine can clarify the current care arrangement, reporting needs and the right rhythm of registered nurse monitoring.", who: 'corine', page: "homecare.html" },
+    match: { tag: "Wolserve WC Homecare", title: "Let's match care to the person and home.", text: "Wolserve WC Homecare can discuss daily, live-in or 24-hour support and help identify the safest, most practical arrangement for the family.", who: 'corine', page: "homecare.html" },
+    good: { tag: "Wolserve WC Homecare", title: "Tell us what good support would look like.", text: "Every home is different. Share the situation with Corine and Wolserve WC Homecare will help identify a respectful, practical next step.", who: 'corine', page: "homecare.html" },
+    review: { tag: "Wolserve WC Consulting", title: "Begin with a focused operational review.", text: "Wolserve WC Consulting can assess current cleaning, hygiene and quality systems, identify priority gaps and recommend practical improvements.", who: 'corine', page: "consulting.html" },
+    docs: { tag: "Wolserve WC Consulting", title: "Turn standards into workable documents.", text: "Wolserve WC Consulting can help develop or improve policies, SOPs, schedules and checklists that are clear enough to use every day.", who: 'corine', page: "consulting.html" },
+    practice: { tag: "Wolserve WC Consulting", title: "Build standards into daily practice.", text: "Wolserve WC Consulting can shape practical on-the-job training and implementation support around your team, environment and priorities.", who: 'corine', page: "consulting.html" },
+    brief: { tag: "Wolserve WC Consulting", title: "Shape the brief with Corine.", text: "Start with a conversation about the site, the challenge and the result you need. Wolserve WC Consulting can recommend a practical project scope.", who: 'corine', page: "consulting.html" },
+    repair: { tag: "Wolserve Western Cape (Pty) Ltd Services", title: "Let's understand the repair or maintenance work needed.", text: "Wolserve Western Cape (Pty) Ltd provides repairs, maintenance, inspection, cleaning and routine care of cleaning equipment. Discuss the equipment and the work needed with Izak.", who: 'izak', page: "cleaning-equipment.html" },
+    medequip: { tag: "Wolserve Western Cape (Pty) Ltd Services", title: "Discuss homecare medical equipment with Izak.", text: "Wolserve Western Cape (Pty) Ltd provides homecare medical equipment sales and rental. Tell Izak what equipment you need and whether you prefer to buy or rent. Availability, pricing and arrangements will be confirmed before proceeding.", who: 'izak', page: "medical-equipment.html" },
+    stone: { tag: "Wolserve Western Cape (Pty) Ltd Services", title: "Discuss the stonework with Izak.", text: "Wolserve Western Cape can assess natural-stone masonry, repairs to existing stonework and retaining-wall requirements before agreeing the practical scope.", who: 'izak', page: "stone-masonry.html" },
+    short: { tag: "Wolserve WC", title: "Start with a short conversation.", text: "Send Corine a brief note and she will direct you to Wolserve WC Homecare, Wolserve WC Consulting or Izak for repairs and maintenance services.", who: 'corine', page: null }
   };
 
   function el(tag, cls, text) {
@@ -90,7 +91,10 @@
     const c = CONTACTS[r.who];
     const note = 'Hello ' + c.name + ', I need help with: ' + o.label + ' (' + q.label + ').';
     root.replaceChildren();
-    root.append(el('p', 'selector-kicker', r.tag), el('h2', '', r.title), el('p', '', r.text));
+    const back = el('button', 'selector-link result-back', '← Change answer');
+    back.type = 'button';
+    back.addEventListener('click', () => step2(q));
+    root.append(back, el('p', 'selector-kicker', 'Your recommended next step'), el('p', 'selector-kicker', r.tag), el('h2', '', r.title), el('p', '', r.text));
     const actions = el('div', 'selector-actions');
 
     const mail = el('a', 'btn btn-primary', 'Email ' + c.name);
@@ -100,20 +104,19 @@
     wa.target = '_blank';
     wa.rel = 'noopener';
     const call = el('a', 'btn btn-outline', 'Request a call');
-    call.href = '#callback';
-    call.addEventListener('click', () => {
-      const msg = document.getElementById('cb-message');
-      if (msg && !msg.value) msg.value = note;
-    });
+    call.href = 'mailto:' + c.email + '?subject=' + encodeURIComponent('Callback request: ' + o.label) +
+      '&body=' + encodeURIComponent(note + '\n\nPlease call me back.\nName:\nPhone number:\nPreferred time:');
     const again = el('button', 'selector-link', 'Start again');
     again.type = 'button';
     again.addEventListener('click', step1);
     actions.append(mail, wa, call);
-    root.append(actions, el('small', 'selector-foot', 'WhatsApp prepares a message for you to send. Call requests use the callback form below.'), again);
-    const back = el('button', 'selector-link', 'Change my answer');
-    back.type = 'button';
-    back.addEventListener('click', () => step2(q));
-    root.append(back);
+    root.append(actions);
+    if (r.page) {
+      const more = el('a', 'learn-more', 'Learn more →');
+      more.href = r.page;
+      root.append(more);
+    }
+    root.append(el('small', 'selector-foot', 'WhatsApp prepares a message for you to send. Callback requests open in your email app.'), again);
   }
 
   step1();

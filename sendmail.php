@@ -1,14 +1,11 @@
 <?php
-// sendmail.php - contact form mailer with reCAPTCHA v2 verification
+// sendmail.php - contact form mailer
 header('Content-Type: application/json; charset=utf-8');
 
 // Load secrets from config.local.php (not committed to git)
 $configFile = __DIR__ . '/config.local.php';
 if (file_exists($configFile)) {
   require $configFile;
-}
-if (!defined('RECAPTCHA_SECRET')) {
-  define('RECAPTCHA_SECRET', '');
 }
 if (!defined('MAIL_RECIPIENT')) {
   define('MAIL_RECIPIENT', 'Corine@wolservewc.co.za');
@@ -29,36 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // Honeypot
 if (!empty($_POST['_gotcha'])) {
   respond(false, 'Spam detected.');
-}
-
-if (RECAPTCHA_SECRET === '') {
-  http_response_code(500);
-  respond(false, 'Server is not configured (missing reCAPTCHA secret).');
-}
-
-// Verify reCAPTCHA
-$token = $_POST['g-recaptcha-response'] ?? '';
-if ($token === '') {
-  respond(false, 'Please tick the reCAPTCHA box.');
-}
-
-$verifyData = http_build_query([
-  'secret'   => RECAPTCHA_SECRET,
-  'response' => $token,
-  'remoteip' => $_SERVER['REMOTE_ADDR'] ?? ''
-]);
-$context = stream_context_create([
-  'http' => [
-    'method'  => 'POST',
-    'header'  => "Content-Type: application/x-www-form-urlencoded\r\n",
-    'content' => $verifyData,
-    'timeout' => 10
-  ]
-]);
-$verifyRaw = @file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
-$verify = $verifyRaw ? json_decode($verifyRaw, true) : null;
-if (!$verify || empty($verify['success'])) {
-  respond(false, 'reCAPTCHA verification failed. Please try again.');
 }
 
 // Collect fields

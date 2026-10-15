@@ -26,15 +26,15 @@
             <div class="dropdown-panel" role="menu">
               <div class="dropdown-column">
                 <h4>Company services</h4>
-                <a href="services.html#property">Cleaning equipment repairs</a>
-                <a href="services.html#property">Sales / Rental of equipment</a>
-                <a href="services.html#property">Stone masonry</a>
+                <a href="cleaning-equipment.html">Cleaning equipment repairs</a>
+                <a href="medical-equipment.html">Sales / Rental of equipment</a>
+                <a href="stone-masonry.html">Stone masonry</a>
               </div>
               <div class="dropdown-column">
                 <h4>Homecare &amp; Consulting</h4>
-                <a href="services.html#homecare">Wolserve WC Homecare</a>
-                <a href="services.html#consulting">Wolserve WC Consulting</a>
-                <a href="newsletter.html">Newsletter</a>
+                <a href="homecare.html">Wolserve WC Homecare</a>
+                <a href="consulting.html">Wolserve WC Consulting</a>
+                <a href="services.html">All services</a>
               </div>
             </div>
           </li>
@@ -61,10 +61,12 @@
             <li class="overlay-group">
               <strong>Services</strong>
               <ul>
-                <li><a href="services.html#property">Cleaning equipment repairs</a></li>
-                <li><a href="services.html#property">Sales / Rental of equipment</a></li>
-                <li><a href="services.html#homecare">Wolserve WC Homecare</a></li>
-                <li><a href="services.html#consulting">Wolserve WC Consulting</a></li>
+                <li><a href="services.html">All services</a></li>
+                <li><a href="cleaning-equipment.html">Cleaning equipment repairs</a></li>
+                <li><a href="medical-equipment.html">Sales / Rental of equipment</a></li>
+                <li><a href="stone-masonry.html">Stone masonry</a></li>
+                <li><a href="homecare.html">Wolserve WC Homecare</a></li>
+                <li><a href="consulting.html">Wolserve WC Consulting</a></li>
               </ul>
             </li>
             <li><a href="newsletter.html">Newsletter</a></li>
@@ -92,6 +94,18 @@
           <div class="newsletter-feature-cover" aria-label="Newsletter cover preview">
             <img src="images/Picture 5.png" alt="Wolserve newsletter cover preview" />
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section muted" id="archive">
+      <div class="container">
+        <div class="section-head center">
+          <h2>Newsletter archive</h2>
+          <p>Previous editions are listed here as PDFs.</p>
+        </div>
+        <div id="newsletter-archive" class="archive-list">
+          <article class="archive-item"><div><h3>Wolserve Western Cape Newsletter</h3><p>October 2026</p></div><a class="btn btn-outline" href="Wolserve_Western_Cape_Newsletter_October_2026%20(6)%20(1).pdf" target="_blank" rel="noopener">Open PDF</a></article>
         </div>
       </div>
     </section>
@@ -135,6 +149,16 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div><strong>Wolserve Western Cape (Pty) Ltd · Established 2021</strong></div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="services.html">Services</a>
+        <a href="homecare.html">Homecare</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="cleaning-equipment.html">Cleaning equipment</a>
+        <a href="medical-equipment.html">Medical equipment</a>
+        <a href="stone-masonry.html">Stone masonry</a>
+        <a href="newsletter.html">Newsletter</a>
+        <a href="contact.html">Contact</a>
+      </nav>
       <div>© <span id="year-newsletter">2026</span></div>
     </div>
   </footer>
@@ -145,6 +169,7 @@
   </div>
 
   <script src="scripts.js" defer></script>
+  <script src="newsletter.js" defer></script>
   <script>
     document.getElementById('year-newsletter').textContent = new Date().getFullYear();
   </script>

@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
   <header class="top-nav" role="banner">
@@ -28,15 +27,15 @@
             <div class="dropdown-panel" role="menu">
               <div class="dropdown-column">
                 <h4>Company services</h4>
-                <a href="#property">Cleaning equipment repairs</a>
-                <a href="#property">Sales / Rental of equipment</a>
-                <a href="#property">Stone masonry</a>
+                <a href="cleaning-equipment.html">Cleaning equipment repairs</a>
+                <a href="medical-equipment.html">Sales / Rental of equipment</a>
+                <a href="stone-masonry.html">Stone masonry</a>
               </div>
               <div class="dropdown-column">
                 <h4>Homecare &amp; Consulting</h4>
-                <a href="#homecare">Wolserve WC Homecare</a>
-                <a href="#consulting">Wolserve WC Consulting</a>
-                <a href="newsletter.html">Newsletter</a>
+                <a href="homecare.html">Wolserve WC Homecare</a>
+                <a href="consulting.html">Wolserve WC Consulting</a>
+                <a href="services.html">All services</a>
               </div>
             </div>
           </li>
@@ -64,10 +63,12 @@
             <li class="overlay-group">
               <strong>Services</strong>
               <ul>
-                <li><a href="#property">Cleaning equipment repairs</a></li>
-                <li><a href="#property">Sales / Rental of equipment</a></li>
-                <li><a href="#homecare">Wolserve WC Homecare</a></li>
-                <li><a href="#consulting">Wolserve WC Consulting</a></li>
+                <li><a href="services.html">All services</a></li>
+                <li><a href="cleaning-equipment.html">Cleaning equipment repairs</a></li>
+                <li><a href="medical-equipment.html">Sales / Rental of equipment</a></li>
+                <li><a href="stone-masonry.html">Stone masonry</a></li>
+                <li><a href="homecare.html">Wolserve WC Homecare</a></li>
+                <li><a href="consulting.html">Wolserve WC Consulting</a></li>
               </ul>
             </li>
             <li><a href="newsletter.html">Newsletter</a></li>
@@ -84,8 +85,8 @@
       <div class="container">
         <div class="svc-tabs" role="tablist" aria-label="Service areas">
           <a class="svc-tab" href="#property"><strong>Wolserve Western Cape (Pty) Ltd Services</strong><span>Equipment, repairs &amp; masonry</span></a>
-          <a class="svc-tab" href="#homecare"><strong>Wolserve WC Homecare</strong><span>RN-led support at home</span></a>
-          <a class="svc-tab" href="#consulting"><strong>Consulting, Auditing &amp; Quality</strong><span>Audits, SOPs &amp; training</span></a>
+          <a class="svc-tab" href="homecare.html"><strong>Wolserve WC Homecare</strong><span>RN-led support at home</span></a>
+          <a class="svc-tab" href="consulting.html"><strong>Consulting, Auditing &amp; Quality</strong><span>Audits, SOPs &amp; training</span></a>
         </div>
 
         <div class="svc-hero-grid">
@@ -95,14 +96,21 @@
             <a class="btn btn-primary" href="#selector">Find the right service</a>
           </div>
 
-          <div class="selector-card" id="selector" aria-live="polite">
-            <ol class="selector-progress" aria-label="Progress">
-              <li data-step="1" class="active">1</li>
-              <li data-step="2">2</li>
-              <li data-step="3">3</li>
-            </ol>
+          <div class="selector-card" id="selector">
+            <div class="selector-panel">
+              <p class="selector-kicker">Service selector</p>
+              <h2>Not sure where to start?</h2>
+              <p>Answer two quick questions and we'll point you to the most relevant Wolserve WC service and next step.</p>
+              <ol class="selector-progress" aria-label="Progress">
+                <li data-step="1" class="active"><span class="sr-only">Step 1</span></li>
+                <li data-step="2"><span class="sr-only">Step 2</span></li>
+                <li data-step="3"><span class="sr-only">Step 3</span></li>
+              </ol>
+            </div>
+            <div class="selector-main" aria-live="polite">
             <div id="selector-body"></div>
             <noscript><p>Please email <a href="mailto:Corine@wolservewc.co.za">Corine</a> or <a href="mailto:izak@wolservewc.co.za">Izak</a> directly.</p></noscript>
+            </div>
           </div>
         </div>
       </div>
@@ -112,7 +120,7 @@
       <div class="container">
         <div class="section-head">
           <h2>Wolserve Western Cape (Pty) Ltd Services</h2>
-          <p>The established core business continues under Founder, Owner and Director Izak Goss. Choose a service below to see the relevant photographs, work offered and the next step.</p>
+          <p>The established core business continues under Founder, Owner and Director Izak Goss. Choose a service to see its own page with the work offered and the next step.</p>
         </div>
 
         <div class="service-rows">
@@ -121,30 +129,23 @@
             <div>
               <h3>Cleaning Equipment Repairs, Maintenance &amp; Inspection</h3>
               <p>Repairs, maintenance and inspection of cleaning equipment to help keep it functioning reliably.</p>
+              <p><a class="learn-more" href="cleaning-equipment.html">Learn more →</a></p>
             </div>
           </div>
-
           <div class="service-item">
             <img src="images/Picture 12.png" alt="Homecare equipment set" class="alive-image">
             <div>
               <h3>Sales / Rental of Homecare Medical Equipment</h3>
-              <p>Suitable medical aids and care equipment will be recommended, and their purpose, function and safe use discussed with the client and family.</p>
+              <p>Suitable medical aids and care equipment, from bath lifts to walking aids, with safe use discussed with the client and family.</p>
+              <p><a class="learn-more" href="medical-equipment.html">Learn more →</a></p>
             </div>
           </div>
-
           <div class="service-item">
-            <img src="images/Picture 14.png" alt="Bath lift support" class="alive-image">
+            <img src="images/masonry/IMG-20261010-WA0019.jpg" alt="Terraced natural-stone retaining walls" class="alive-image">
             <div>
-              <h3>Bath lift support</h3>
-              <p>Bath lift and tub-assist equipment to improve bathing safety, comfort and independence.</p>
-            </div>
-          </div>
-
-          <div class="service-item">
-            <img src="images/Picture 13.png" alt="Walking aid equipment" class="alive-image">
-            <div>
-              <h3>Mobility and walking support</h3>
-              <p>Walking aids, rollators and supportive mobility equipment to improve confidence, movement and safety at home.</p>
+              <h3>Stone Masonry</h3>
+              <p>Natural-stone masonry, repairs to existing stonework and retaining walls, built with care.</p>
+              <p><a class="learn-more" href="stone-masonry.html">Learn more →</a></p>
             </div>
           </div>
         </div>
@@ -157,21 +158,13 @@
           <h2>Wolserve WC Homecare</h2>
           <p>Compassionate, person-centred support designed around the individual, their home and their family.</p>
         </div>
-
         <div class="service-rows">
           <div class="service-item">
-            <img src="images/Picture 9.png" alt="Homecare consultation scene" class="alive-image">
+            <img src="images/Picture 9.jpg" alt="Homecare consultation scene" class="alive-image">
             <div>
               <h3>Family-centred support at home</h3>
-              <p>Support may include personal care, help with everyday activities, companionship and a care plan informed by a registered-nurse assessment.</p>
-            </div>
-          </div>
-
-          <div class="service-item">
-            <img src="images/Picture 8.png" alt="Homecare badge" class="alive-image">
-            <div>
-              <h3>Assessment &amp; care planning</h3>
-              <p>Registered nurse assessment and ongoing monitoring. Tailored quotations follow assessment based on care needs, hours, staff qualifications and support requirements.</p>
+              <p>Personal care, everyday support and companionship, guided by a registered-nurse assessment. See the care comparison and careers on the Homecare page.</p>
+              <p><a class="learn-more" href="homecare.html">Learn more →</a></p>
             </div>
           </div>
         </div>
@@ -184,105 +177,52 @@
           <h2>Consulting, Auditing &amp; Quality</h2>
           <p>Practical guidance for safer, cleaner and more consistent services across complex environments.</p>
         </div>
-
         <div class="service-rows">
           <div class="service-item">
-            <img src="images/Picture 9.png" alt="Consulting scene" class="alive-image">
+            <img src="images/Picture 9.jpg" alt="Consulting scene" class="alive-image">
             <div>
               <h3>Operational audits &amp; SOPs</h3>
               <p>Policies, SOPs, schedules, checklists and on-the-job training to support safer service operations.</p>
+              <p><a class="learn-more" href="consulting.html">Learn more →</a></p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="equipment" class="section muted">
-      <div class="container">
-        <div class="section-head">
-          <h2>Sales/Rental of Homecare Medical Equipment</h2>
-          <p>Suitable medical aids and care equipment are recommended, with their purpose, function and safe use discussed with the client and family. Contact Izak to discuss sales or rental options.</p>
-        </div>
-        <div class="section-head">
-          <h2>Cleaning Equipment Repairs, Maintenance &amp; Inspection</h2>
-          <p>Repairs, maintenance and inspection to keep cleaning equipment functioning reliably.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="masonry" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Stone Masonry</h2>
-          <p>Stone masonry and retaining walls, built with care from the first conversation to the finished project.</p>
-        </div>
-        <div class="stage-grid">
-          <div class="stage-card"><span>Stage 1</span><h3>Site discussion</h3><p>We discuss the stonework needed and the site conditions.</p></div>
-          <div class="stage-card"><span>Stage 2</span><h3>Planning &amp; quotation</h3><p>Materials, design and a clear quotation.</p></div>
-          <div class="stage-card"><span>Stage 3</span><h3>Construction</h3><p>Careful building of walls and stone features.</p></div>
-          <div class="stage-card"><span>Stage 4</span><h3>Completion</h3><p>Final inspection and hand-over.</p></div>
-        </div>
-        <p><a class="btn btn-outline" href="mailto:izak@wolservewc.co.za?subject=Stone%20masonry%20enquiry">Discuss the stonework with Izak</a></p>
-      </div>
-    </section>
-
-    <section id="comparison" class="section muted">
-      <div class="container">
-        <div class="section-head">
-          <h2>Homecare comparison</h2>
-          <p>How recovery care, daily care and palliative care differ.</p>
-        </div>
-        <div class="table-wrap">
-          <table class="compare-table">
-            <thead><tr><th scope="col"></th><th scope="col">Recovery care</th><th scope="col">Daily care</th><th scope="col">Palliative care</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Purpose</th><td>Support healing after illness, surgery or injury</td><td>Help with everyday activities and companionship</td><td>Comfort and quality of life for serious illness</td></tr>
-              <tr><th scope="row">Nurse oversight</th><td>Registered-nurse assessment and monitoring</td><td>Periodic RN oversight of the care plan</td><td>RN-led planning with the family</td></tr>
-              <tr><th scope="row">Duration</th><td>Short to medium term</td><td>Ongoing or live-in</td><td>As needed</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p><a href="https://www.who.int/news-room/fact-sheets/detail/palliative-care">Palliative-care information: World Health Organization.</a></p>
-      </div>
-    </section>
-
-    <section id="callback" class="section">
+    <section id="callback" class="section muted">
       <div class="container">
         <div class="section-head">
           <h2>Ask Wolserve Western Cape to contact you</h2>
           <p>Leave your details and we will call you back. You can also email <a href="mailto:Corine@wolservewc.co.za">Corine</a> or <a href="mailto:izak@wolservewc.co.za">Izak</a>.</p>
         </div>
         <form id="callbackForm" class="contact-form" method="POST" action="sendmail.php" novalidate>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
           <div class="form-row"><label for="cb-name">Name</label><input id="cb-name" name="name" type="text" required autocomplete="name"></div>
           <div class="form-row"><label for="cb-phone">Phone</label><input id="cb-phone" name="phone" type="tel" required autocomplete="tel" placeholder="e.g. 082 469 1994"></div>
           <div class="form-row"><label for="cb-email">Email (optional)</label><input id="cb-email" name="email" type="email" autocomplete="email"></div>
           <div class="form-row"><label for="cb-message">Message</label><textarea id="cb-message" name="message" rows="3" placeholder="Briefly describe what you need"></textarea></div>
-          <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
           <button type="submit" class="btn btn-primary">Request a callback</button>
           <div id="cb-status" class="form-status" aria-live="polite" role="status"></div>
         </form>
       </div>
     </section>
 
-    <section id="careers" class="section muted">
-      <div class="container">
-        <div class="section-head">
-          <h2>Careworker &amp; Nursing Careers</h2>
-          <p>Join the Wolserve WC Homecare team. Applicants should be compassionate, reliable and hold the relevant care or nursing qualification and registration.</p>
-        </div>
-        <ul class="criteria-list">
-          <li>Relevant care or nursing qualification</li>
-          <li>Reliable, respectful and professional manner</li>
-          <li>Willingness to work in clients' homes</li>
-        </ul>
-        <a class="btn btn-primary" href="mailto:Corine@wolservewc.co.za?subject=Careers%20application">Start application</a>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div><strong>Wolserve Western Cape (Pty) Ltd</strong></div>
+      <div><strong>Wolserve Western Cape (Pty) Ltd · Established 2021</strong></div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="services.html">Services</a>
+        <a href="homecare.html">Homecare</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="cleaning-equipment.html">Cleaning equipment</a>
+        <a href="medical-equipment.html">Medical equipment</a>
+        <a href="stone-masonry.html">Stone masonry</a>
+        <a href="newsletter.html">Newsletter</a>
+        <a href="contact.html">Contact</a>
+      </nav>
       <div>© <span id="year-services">2026</span></div>
     </div>
   </footer>
