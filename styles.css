@@ -246,7 +246,7 @@ button, input, textarea, select { font: inherit; }
 .newsletter-copy p { margin: 0; color: var(--text-muted); }
 .newsletter-feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 0.7fr); gap: 28px; align-items: center; }
 .newsletter-feature-cover { display: block; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--white); box-shadow: var(--shadow); }
-.newsletter-feature-cover img { width: 100%; max-height: 460px; object-fit: contain; }
+.newsletter-feature-cover img { width: 100%; height: auto; max-height: 560px; object-fit: contain; }
 .newsletter-feature-cover:focus-visible { outline: 3px solid var(--brand-green); outline-offset: 4px; }
 
 .contact-page .section { padding: 42px 0 70px; }
