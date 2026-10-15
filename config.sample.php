@@ -4,3 +4,5 @@
 
 define('RECAPTCHA_SECRET', 'YOUR_RECAPTCHA_SECRET_KEY');
 define('MAIL_RECIPIENT', 'Corine@wolservewc.co.za');
+// Secret used by admin/upload-newsletter.php (requires PHP hosting).
+define('NEWSLETTER_ADMIN_TOKEN', 'CHANGE_ME_TO_A_LONG_RANDOM_STRING');

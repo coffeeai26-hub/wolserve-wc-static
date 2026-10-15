@@ -356,3 +356,15 @@ button, input, textarea, select { font: inherit; }
 @media (max-width: 900px) {
   .svc-tabs, .svc-hero-grid, .stage-grid { grid-template-columns: 1fr; }
 }
+
+/* Newsletter archive */
+.archive-list { list-style: none; margin: 0 auto; padding: 0; max-width: 760px; display: grid; gap: 12px; }
+.archive-item { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 16px 20px; }
+.archive-item h3 { margin: 0 0 4px; color: var(--dark); }
+.archive-item p { margin: 0; color: var(--text-muted); }
+
+/* Completed stone masonry gallery */
+.gallery-grid { columns: 3 240px; column-gap: 16px; margin-bottom: 20px; }
+.gallery-tile { break-inside: avoid; margin: 0 0 16px; background: var(--white); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+.gallery-tile img { display: block; width: 100%; height: auto; cursor: zoom-in; }
+.gallery-tile figcaption { padding: 10px 14px; color: var(--text-muted); font-size: .9rem; }

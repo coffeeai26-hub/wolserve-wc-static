@@ -1,0 +1,3 @@
+# Only PDFs and the manifest are served from this folder; never execute uploads.
+php_flag engine off
+Options -ExecCGI -Indexes
