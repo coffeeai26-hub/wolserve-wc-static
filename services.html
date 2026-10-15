@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
   <header class="top-nav" role="banner">
@@ -79,6 +80,34 @@
   </header>
 
   <main>
+    <section class="svc-hero" id="top">
+      <div class="container">
+        <div class="svc-tabs" role="tablist" aria-label="Service areas">
+          <a class="svc-tab" href="#property"><strong>Wolserve Western Cape (Pty) Ltd Services</strong><span>Equipment, repairs &amp; masonry</span></a>
+          <a class="svc-tab" href="#homecare"><strong>Wolserve WC Homecare</strong><span>RN-led support at home</span></a>
+          <a class="svc-tab" href="#consulting"><strong>Consulting, Auditing &amp; Quality</strong><span>Audits, SOPs &amp; training</span></a>
+        </div>
+
+        <div class="svc-hero-grid">
+          <div class="svc-hero-copy">
+            <h1>Wolserve Western Cape <span>Services</span></h1>
+            <p>Homecare, consulting and practical equipment services under one roof. Answer two quick questions and we will point you to the right person and next step.</p>
+            <a class="btn btn-primary" href="#selector">Find the right service</a>
+          </div>
+
+          <div class="selector-card" id="selector" aria-live="polite">
+            <ol class="selector-progress" aria-label="Progress">
+              <li data-step="1" class="active">1</li>
+              <li data-step="2">2</li>
+              <li data-step="3">3</li>
+            </ol>
+            <div id="selector-body"></div>
+            <noscript><p>Please email <a href="mailto:Corine@wolservewc.co.za">Corine</a> or <a href="mailto:izak@wolservewc.co.za">Izak</a> directly.</p></noscript>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="property" class="section">
       <div class="container">
         <div class="section-head">
@@ -167,6 +196,88 @@
         </div>
       </div>
     </section>
+
+    <section id="equipment" class="section muted">
+      <div class="container">
+        <div class="section-head">
+          <h2>Sales/Rental of Homecare Medical Equipment</h2>
+          <p>Suitable medical aids and care equipment are recommended, with their purpose, function and safe use discussed with the client and family. Contact Izak to discuss sales or rental options.</p>
+        </div>
+        <div class="section-head">
+          <h2>Cleaning Equipment Repairs, Maintenance &amp; Inspection</h2>
+          <p>Repairs, maintenance and inspection to keep cleaning equipment functioning reliably.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="masonry" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Stone Masonry</h2>
+          <p>Stone masonry and retaining walls, built with care from the first conversation to the finished project.</p>
+        </div>
+        <div class="stage-grid">
+          <div class="stage-card"><span>Stage 1</span><h3>Site discussion</h3><p>We discuss the stonework needed and the site conditions.</p></div>
+          <div class="stage-card"><span>Stage 2</span><h3>Planning &amp; quotation</h3><p>Materials, design and a clear quotation.</p></div>
+          <div class="stage-card"><span>Stage 3</span><h3>Construction</h3><p>Careful building of walls and stone features.</p></div>
+          <div class="stage-card"><span>Stage 4</span><h3>Completion</h3><p>Final inspection and hand-over.</p></div>
+        </div>
+        <p><a class="btn btn-outline" href="mailto:izak@wolservewc.co.za?subject=Stone%20masonry%20enquiry">Discuss the stonework with Izak</a></p>
+      </div>
+    </section>
+
+    <section id="comparison" class="section muted">
+      <div class="container">
+        <div class="section-head">
+          <h2>Homecare comparison</h2>
+          <p>How recovery care, daily care and palliative care differ.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="compare-table">
+            <thead><tr><th scope="col"></th><th scope="col">Recovery care</th><th scope="col">Daily care</th><th scope="col">Palliative care</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Purpose</th><td>Support healing after illness, surgery or injury</td><td>Help with everyday activities and companionship</td><td>Comfort and quality of life for serious illness</td></tr>
+              <tr><th scope="row">Nurse oversight</th><td>Registered-nurse assessment and monitoring</td><td>Periodic RN oversight of the care plan</td><td>RN-led planning with the family</td></tr>
+              <tr><th scope="row">Duration</th><td>Short to medium term</td><td>Ongoing or live-in</td><td>As needed</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><a href="https://www.who.int/news-room/fact-sheets/detail/palliative-care">Palliative-care information: World Health Organization.</a></p>
+      </div>
+    </section>
+
+    <section id="callback" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Ask Wolserve Western Cape to contact you</h2>
+          <p>Leave your details and we will call you back. You can also email <a href="mailto:Corine@wolservewc.co.za">Corine</a> or <a href="mailto:izak@wolservewc.co.za">Izak</a>.</p>
+        </div>
+        <form id="callbackForm" class="contact-form" method="POST" action="sendmail.php" novalidate>
+          <div class="form-row"><label for="cb-name">Name</label><input id="cb-name" name="name" type="text" required autocomplete="name"></div>
+          <div class="form-row"><label for="cb-phone">Phone</label><input id="cb-phone" name="phone" type="tel" required autocomplete="tel" placeholder="e.g. 082 469 1994"></div>
+          <div class="form-row"><label for="cb-email">Email (optional)</label><input id="cb-email" name="email" type="email" autocomplete="email"></div>
+          <div class="form-row"><label for="cb-message">Message</label><textarea id="cb-message" name="message" rows="3" placeholder="Briefly describe what you need"></textarea></div>
+          <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+          <button type="submit" class="btn btn-primary">Request a callback</button>
+          <div id="cb-status" class="form-status" aria-live="polite" role="status"></div>
+        </form>
+      </div>
+    </section>
+
+    <section id="careers" class="section muted">
+      <div class="container">
+        <div class="section-head">
+          <h2>Careworker &amp; Nursing Careers</h2>
+          <p>Join the Wolserve WC Homecare team. Applicants should be compassionate, reliable and hold the relevant care or nursing qualification and registration.</p>
+        </div>
+        <ul class="criteria-list">
+          <li>Relevant care or nursing qualification</li>
+          <li>Reliable, respectful and professional manner</li>
+          <li>Willingness to work in clients' homes</li>
+        </ul>
+        <a class="btn btn-primary" href="mailto:Corine@wolservewc.co.za?subject=Careers%20application">Start application</a>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -182,6 +293,7 @@
   </div>
 
   <script src="scripts.js" defer></script>
+  <script src="selector.js" defer></script>
   <script>
     document.getElementById('year-services').textContent = new Date().getFullYear();
   </script>
