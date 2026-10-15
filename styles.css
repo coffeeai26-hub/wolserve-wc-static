@@ -356,3 +356,10 @@ button, input, textarea, select { font: inherit; }
 @media (max-width: 900px) {
   .svc-tabs, .svc-hero-grid, .stage-grid { grid-template-columns: 1fr; }
 }
+
+.gallery-title { margin: 32px 0 12px; }
+.masonry-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+.masonry-gallery figure { margin: 0; }
+.gallery-tile { display: flex; align-items: flex-end; min-height: 180px; padding: 16px; border-radius: 22px; background: linear-gradient(135deg, #6b7280, #9ca3af 60%, #d1d5db); color: #fff; font-weight: 700; }
+.masonry-gallery figcaption { margin-top: 8px; font-size: .9rem; color: #555; }
+@media (max-width: 800px) { .masonry-gallery { grid-template-columns: 1fr; } }
