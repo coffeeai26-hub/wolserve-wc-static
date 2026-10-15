@@ -1,9 +1,9 @@
 <?php
 // Copy this file to config.local.php on your server and fill in real values.
-// config.local.php is git-ignored so your settings are never committed.
+// config.local.php is git-ignored so your secrets are never committed.
 
 define('MAIL_RECIPIENT', 'Corine@wolservewc.co.za');
 
-// Newsletter upload (admin/upload-newsletter.php). Generate the hash with:
+// Password hash for admin/upload-newsletter.php. Generate one with:
 //   php -r "echo password_hash('your-password', PASSWORD_DEFAULT);"
-define('NEWSLETTER_ADMIN_HASH', '');
+define('ADMIN_PASSWORD_HASH', '');

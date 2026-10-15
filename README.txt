@@ -3,25 +3,29 @@ Wolserve Western Cape — static site
 Pages:
 - index.html               Home
 - about.html               Meet the Team (portraits side by side)
-- services.html            Services overview hub: service tabs, service selector (selector.js), links to each service page
+- services.html            Services overview hub: service tabs, service selector and links to each service page
 - homecare.html            Wolserve WC Homecare (comparison table, WHO link, careers)
-- consulting.html          Consulting, Auditing & Quality
+- consulting.html          Wolserve WC Consulting
 - cleaning-equipment.html  Cleaning equipment repairs, maintenance & inspection
 - medical-equipment.html   Sales / rental of homecare medical equipment
-- stone-masonry.html       Stone masonry + "Completed stone masonry projects" gallery (gallery.js)
-- newsletter.html          Newsletter page and PDF archive (newsletter.js)
+- stone-masonry.html       Stone masonry with photo gallery
+- newsletter.html          Newsletter archive
 - contact.html             Contact and callback form
 
-Other files:
-- styles.css, scripts.js (nav, dropdown, lightbox, callback form), selector.js, gallery.js, newsletter.js
-- images/                  Site pictures (use the .jpg/.png variants referenced by the pages)
-- images/masonry/          Masonry photos; list them in images/masonry/gallery.json (src, alt, caption)
-- newsletters/newsletters.json   Newsletter archive list (title, date, file)
-- admin/upload-newsletter.php    Newsletter PDF upload (needs PHP hosting; set NEWSLETTER_ADMIN_HASH in config.local.php)
-- sendmail.php, config.sample.php  Callback form mailer (PHP hosting; copy config.sample.php to config.local.php)
+Scripts and styles:
+- styles.css, scripts.js (nav, lightbox, callback form), selector.js (service selector),
+  gallery.js (masonry gallery), newsletter.js (newsletter archive)
+
+Content:
+- images/                  Site images (Picture 1-14; use the .jpg files for Picture 3, 4, 9 and 14)
+- images/masonry/          Masonry photos; list them in images/masonry/gallery.json
+- newsletters/newsletters.json  Newsletter archive list
+
+PHP (needs PHP hosting, not GitHub Pages):
+- sendmail.php             Callback form mailer (name/phone validation + honeypot)
+- admin/upload-newsletter.php  Upload a newsletter PDF and add it to the archive
+- config.sample.php        Copy to config.local.php and set MAIL_RECIPIENT and ADMIN_PASSWORD_HASH
 
 Usage:
 1) Download or clone this repository.
-2) Open index.html in a browser. Pages work without a server; the gallery and newsletter archive
-   fall back to built-in markup, and the callback form and newsletter upload need PHP hosting.
-3) Add masonry photos to images/masonry/ and list them in images/masonry/gallery.json.
+2) Open index.html in a browser. (The gallery and archive lists are also rendered from their JSON files when served over HTTP.)

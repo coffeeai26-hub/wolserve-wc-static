@@ -53,6 +53,10 @@
       }
     });
 
+    wrap.addEventListener('focusin', () => {
+      button.setAttribute('aria-expanded', 'true');
+    });
+
     wrap.addEventListener('focusout', () => {
       setTimeout(() => {
         if (!wrap.contains(document.activeElement)) {
@@ -62,10 +66,6 @@
       }, 10);
     });
 
-    wrap.addEventListener('focusin', () => {
-      button.setAttribute('aria-expanded', 'true');
-    });
-
     wrap.addEventListener('mouseenter', () => {
       panel.style.display = 'block';
       button.setAttribute('aria-expanded', 'true');
@@ -73,9 +73,7 @@
 
     wrap.addEventListener('mouseleave', () => {
       panel.style.display = '';
-      if (!wrap.contains(document.activeElement)) {
-        button.setAttribute('aria-expanded', 'false');
-      }
+      button.setAttribute('aria-expanded', 'false');
     });
   });
 
@@ -111,7 +109,7 @@
 
   document.addEventListener('click', (event) => {
     const img = event.target.closest && event.target.closest('.alive-image');
-    if (img) openLightbox(img.src);
+    if (img) openLightbox(img.currentSrc || img.src);
   });
 
   if (lightboxClose) lightboxClose.addEventListener('click', closeLightboxFn);

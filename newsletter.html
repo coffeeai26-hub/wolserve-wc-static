@@ -21,11 +21,13 @@
         <ul class="nav-links" id="primaryNav">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">Meet the Team</a></li>
+
           <li class="has-dropdown" aria-haspopup="true">
             <button class="dropdown-toggle" aria-expanded="false">Services</button>
             <div class="dropdown-panel" role="menu">
               <div class="dropdown-column">
                 <h4>Company services</h4>
+                <a href="services.html">Services overview</a>
                 <a href="cleaning-equipment.html">Cleaning equipment repairs</a>
                 <a href="medical-equipment.html">Sales / Rental of equipment</a>
                 <a href="stone-masonry.html">Stone masonry</a>
@@ -34,10 +36,11 @@
                 <h4>Homecare &amp; Consulting</h4>
                 <a href="homecare.html">Wolserve WC Homecare</a>
                 <a href="consulting.html">Wolserve WC Consulting</a>
-                <a href="services.html">All services</a>
+                <a href="newsletter.html">Newsletter</a>
               </div>
             </div>
           </li>
+
           <li><a href="newsletter.html">Newsletter</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -61,10 +64,8 @@
             <li class="overlay-group">
               <strong>Services</strong>
               <ul>
-                <li><a href="services.html">All services</a></li>
                 <li><a href="cleaning-equipment.html">Cleaning equipment repairs</a></li>
                 <li><a href="medical-equipment.html">Sales / Rental of equipment</a></li>
-                <li><a href="stone-masonry.html">Stone masonry</a></li>
                 <li><a href="homecare.html">Wolserve WC Homecare</a></li>
                 <li><a href="consulting.html">Wolserve WC Consulting</a></li>
               </ul>
@@ -98,15 +99,21 @@
       </div>
     </section>
 
-    <section class="section muted" id="archive">
+    <section class="section" id="archive">
       <div class="container">
         <div class="section-head center">
           <h2>Newsletter archive</h2>
-          <p>Previous editions are listed here as PDFs.</p>
+          <p>Download current and past editions.</p>
         </div>
-        <div id="newsletter-archive" class="archive-list">
-          <article class="archive-item"><div><h3>Wolserve Western Cape Newsletter</h3><p>October 2026</p></div><a class="btn btn-outline" href="Wolserve_Western_Cape_Newsletter_October_2026%20(6)%20(1).pdf" target="_blank" rel="noopener">Open PDF</a></article>
-        </div>
+        <ul class="archive-list" id="newsletter-archive">
+          <li class="archive-item">
+            <div><h3>Wolserve Western Cape Newsletter</h3><p>October 2026</p></div>
+            <div class="archive-actions">
+              <a class="btn btn-primary" href="Wolserve_Western_Cape_Newsletter_October_2026%20(6)%20(1).pdf" target="_blank" rel="noopener">Open PDF</a>
+              <a class="btn btn-outline" href="Wolserve_Western_Cape_Newsletter_October_2026%20(6)%20(1).pdf" download>Download</a>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -149,18 +156,18 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div><strong>Wolserve Western Cape (Pty) Ltd · Established 2021</strong></div>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="services.html">Services</a>
-        <a href="homecare.html">Homecare</a>
-        <a href="consulting.html">Consulting</a>
-        <a href="cleaning-equipment.html">Cleaning equipment</a>
-        <a href="medical-equipment.html">Medical equipment</a>
-        <a href="stone-masonry.html">Stone masonry</a>
-        <a href="newsletter.html">Newsletter</a>
-        <a href="contact.html">Contact</a>
-      </nav>
       <div>© <span id="year-newsletter">2026</span></div>
     </div>
+    <nav class="container footer-links" aria-label="Footer navigation">
+      <a href="services.html">Services overview</a>
+      <a href="homecare.html">Wolserve WC Homecare</a>
+      <a href="consulting.html">Wolserve WC Consulting</a>
+      <a href="cleaning-equipment.html">Cleaning equipment repairs</a>
+      <a href="medical-equipment.html">Sales / Rental of equipment</a>
+      <a href="stone-masonry.html">Stone masonry</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </footer>
 
   <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
