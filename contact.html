@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body class="contact-page">
   <header class="top-nav" role="banner">
@@ -28,14 +27,15 @@
             <div class="dropdown-panel" role="menu">
               <div class="dropdown-column">
                 <h4>Company services</h4>
-                <a href="services.html#property">Cleaning equipment repairs</a>
-                <a href="services.html#property">Sales / Rental of equipment</a>
-                <a href="services.html#property">Stone masonry</a>
+                <a href="services.html">Services overview</a>
+                <a href="cleaning-equipment.html">Cleaning equipment repairs</a>
+                <a href="medical-equipment.html">Sales / Rental of equipment</a>
+                <a href="stone-masonry.html">Stone masonry</a>
               </div>
               <div class="dropdown-column">
                 <h4>Homecare &amp; Consulting</h4>
-                <a href="services.html#homecare">Wolserve WC Homecare</a>
-                <a href="services.html#consulting">Wolserve WC Consulting</a>
+                <a href="homecare.html">Wolserve WC Homecare</a>
+                <a href="consulting.html">Wolserve WC Consulting</a>
                 <a href="newsletter.html">Newsletter</a>
               </div>
             </div>
@@ -64,10 +64,10 @@
             <li class="overlay-group">
               <strong>Services</strong>
               <ul>
-                <li><a href="services.html#property">Cleaning equipment repairs</a></li>
-                <li><a href="services.html#property">Sales / Rental of equipment</a></li>
-                <li><a href="services.html#homecare">Wolserve WC Homecare</a></li>
-                <li><a href="services.html#consulting">Wolserve WC Consulting</a></li>
+                <li><a href="cleaning-equipment.html">Cleaning equipment repairs</a></li>
+                <li><a href="medical-equipment.html">Sales / Rental of equipment</a></li>
+                <li><a href="homecare.html">Wolserve WC Homecare</a></li>
+                <li><a href="consulting.html">Wolserve WC Consulting</a></li>
               </ul>
             </li>
             <li><a href="newsletter.html">Newsletter</a></li>
@@ -139,9 +139,6 @@
                 <textarea id="cb-message" name="message" rows="3" placeholder="Briefly describe what you need"></textarea>
               </div>
 
-              <!-- Replace YOUR_RECAPTCHA_SITE_KEY with your reCAPTCHA v2 (checkbox) site key -->
-              <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
-
               <div class="form-actions">
                 <button type="submit" class="btn btn-primary">Request a callback</button>
                 <div id="cb-status" class="form-status" aria-live="polite" role="status"></div>
@@ -212,6 +209,16 @@
       <div><strong>Wolserve Western Cape (Pty) Ltd · Established 2021</strong></div>
       <div>© <span id="year-contact">2026</span></div>
     </div>
+    <nav class="container footer-links" aria-label="Footer navigation">
+      <a href="services.html">Services overview</a>
+      <a href="homecare.html">Wolserve WC Homecare</a>
+      <a href="consulting.html">Wolserve WC Consulting</a>
+      <a href="cleaning-equipment.html">Cleaning equipment repairs</a>
+      <a href="medical-equipment.html">Sales / Rental of equipment</a>
+      <a href="stone-masonry.html">Stone masonry</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </footer>
 
   <script src="scripts.js" defer></script>

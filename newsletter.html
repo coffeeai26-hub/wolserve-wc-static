@@ -21,23 +21,26 @@
         <ul class="nav-links" id="primaryNav">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">Meet the Team</a></li>
+
           <li class="has-dropdown" aria-haspopup="true">
             <button class="dropdown-toggle" aria-expanded="false">Services</button>
             <div class="dropdown-panel" role="menu">
               <div class="dropdown-column">
                 <h4>Company services</h4>
-                <a href="services.html#property">Cleaning equipment repairs</a>
-                <a href="services.html#property">Sales / Rental of equipment</a>
-                <a href="services.html#property">Stone masonry</a>
+                <a href="services.html">Services overview</a>
+                <a href="cleaning-equipment.html">Cleaning equipment repairs</a>
+                <a href="medical-equipment.html">Sales / Rental of equipment</a>
+                <a href="stone-masonry.html">Stone masonry</a>
               </div>
               <div class="dropdown-column">
                 <h4>Homecare &amp; Consulting</h4>
-                <a href="services.html#homecare">Wolserve WC Homecare</a>
-                <a href="services.html#consulting">Wolserve WC Consulting</a>
+                <a href="homecare.html">Wolserve WC Homecare</a>
+                <a href="consulting.html">Wolserve WC Consulting</a>
                 <a href="newsletter.html">Newsletter</a>
               </div>
             </div>
           </li>
+
           <li><a href="newsletter.html">Newsletter</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -61,10 +64,10 @@
             <li class="overlay-group">
               <strong>Services</strong>
               <ul>
-                <li><a href="services.html#property">Cleaning equipment repairs</a></li>
-                <li><a href="services.html#property">Sales / Rental of equipment</a></li>
-                <li><a href="services.html#homecare">Wolserve WC Homecare</a></li>
-                <li><a href="services.html#consulting">Wolserve WC Consulting</a></li>
+                <li><a href="cleaning-equipment.html">Cleaning equipment repairs</a></li>
+                <li><a href="medical-equipment.html">Sales / Rental of equipment</a></li>
+                <li><a href="homecare.html">Wolserve WC Homecare</a></li>
+                <li><a href="consulting.html">Wolserve WC Consulting</a></li>
               </ul>
             </li>
             <li><a href="newsletter.html">Newsletter</a></li>
@@ -93,6 +96,24 @@
             <img src="images/Picture 5.png" alt="Wolserve newsletter cover preview" />
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="archive">
+      <div class="container">
+        <div class="section-head center">
+          <h2>Newsletter archive</h2>
+          <p>Download current and past editions.</p>
+        </div>
+        <ul class="archive-list" id="newsletter-archive">
+          <li class="archive-item">
+            <div><h3>Wolserve Western Cape Newsletter</h3><p>October 2026</p></div>
+            <div class="archive-actions">
+              <a class="btn btn-primary" href="Wolserve_Western_Cape_Newsletter_October_2026%20(6)%20(1).pdf" target="_blank" rel="noopener">Open PDF</a>
+              <a class="btn btn-outline" href="Wolserve_Western_Cape_Newsletter_October_2026%20(6)%20(1).pdf" download>Download</a>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -137,6 +158,16 @@
       <div><strong>Wolserve Western Cape (Pty) Ltd · Established 2021</strong></div>
       <div>© <span id="year-newsletter">2026</span></div>
     </div>
+    <nav class="container footer-links" aria-label="Footer navigation">
+      <a href="services.html">Services overview</a>
+      <a href="homecare.html">Wolserve WC Homecare</a>
+      <a href="consulting.html">Wolserve WC Consulting</a>
+      <a href="cleaning-equipment.html">Cleaning equipment repairs</a>
+      <a href="medical-equipment.html">Sales / Rental of equipment</a>
+      <a href="stone-masonry.html">Stone masonry</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </footer>
 
   <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
@@ -145,6 +176,7 @@
   </div>
 
   <script src="scripts.js" defer></script>
+  <script src="newsletter.js" defer></script>
   <script>
     document.getElementById('year-newsletter').textContent = new Date().getFullYear();
   </script>
