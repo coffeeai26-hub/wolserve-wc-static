@@ -34,6 +34,6 @@
       });
     })
     .catch(() => {
-      list.textContent = 'The newsletter archive could not be loaded. Please try again later.';
+      // Keep the static archive markup from newsletter.html when the JSON cannot be fetched.
     });
 })();
